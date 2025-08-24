@@ -1,0 +1,2 @@
+Module Two: Variables & Arithmetics
+    - Learn to store variables, perform arithmetic, follow Python naming rules, organize code into modules, and reuse existing code. Practice through labs, projects, and quizzes.
