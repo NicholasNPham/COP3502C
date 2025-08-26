@@ -19,4 +19,4 @@ while gameProgress:
     print(f'Your card is {card}')
     print(f'Your hand is {hand}')
     while True:
-        choice = input("1. Get Another Card \n2. Hold Hand \n3. Print statistics \n4. Exit \nChoose your choice: ")
+        choice = input("1. Get Another Card \n2. Hold Hand \n3. Print statistics \n4. Exit \nChoose your choice: ") #29:16
