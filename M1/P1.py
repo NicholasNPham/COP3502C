@@ -42,3 +42,11 @@ while gameProgress:
                 hand += 10
                 print(f'Your card is KING')
                 print(f'Your hand is {hand}')
+        elif choice == 2:
+            # Dealer's Draw
+            dealerHand = rng.next_int(13) + 16
+            print(f"Your dealer hand is {dealerHand}")
+            if dealerHand == 21:
+                dealerWin += 1
+                print("Dealer Wins")
+                break
