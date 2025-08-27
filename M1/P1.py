@@ -57,7 +57,7 @@ while gameProgress:
                 print(f'Your hand is {hand}')
 
             if hand == 21:
-                playerWin = 1
+                playerWin += 1
                 print("\nBLACKJACK! You win!\n")
                 break
             elif hand > 21:
@@ -92,7 +92,11 @@ while gameProgress:
                 break
 
         elif choice == 3:
-            pass
+            print(f'Number of Player wins: {playerWin}')
+            print(f'Number of Dealer wins: {dealerWin}')
+            print(f'Number of tie games: {gameTied}')
+            print(f'total # of games is: {gameNumber}')
+            print(f'Percentage of Player wins: {playerWin/(gameNumber - 1):.2f}%')
 
         elif choice == 4:
             gameProgress = False
