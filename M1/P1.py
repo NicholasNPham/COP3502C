@@ -10,16 +10,22 @@ gameProgress = True
 while gameProgress:
     # New Game Loop
     gameNumber += 1
-    print(f'Start Game {gameNumber}')
+    print(f'Start Game #{gameNumber}')
     card = rng.next_int(13) + 1 #[0-12]
-    if card <= 10:
+    if card == 1:
+        card = "ACE"
+    elif 2 <= card <= 10:
         hand = card
+    elif card == 11:
+        card = "JACK"
+    elif card == 12:
+        card = "QUEEN"
     else:
-        hand = 10
-    print(f'Your card is {card}')
+        card = "KING"
+    print(f'\nYour card is {card}!')
     print(f'Your hand is {hand}')
     while True:
-        choice = int(input("1. Get Another Card \n2. Hold Hand \n3. Print statistics \n4. Exit \nChoose your choice: "))
+        choice = int(input("\n1. Get Another Card \n2. Hold Hand \n3. Print statistics \n4. Exit \n\nChoose your choice: "))
         if choice == 1:
             card = rng.next_int(13) + 1
             if card == 1:
@@ -55,27 +61,27 @@ while gameProgress:
         elif choice == 2:
             # Dealer's Draw
             dealerHand = rng.next_int(11) + 16
-            print(f"Dealer's hand: {dealerHand}")
+            print(f"\nDealer's hand: {dealerHand}")
             print(f"Your hand is {hand}")
             if dealerHand == 21:
                 dealerWin += 1
-                print("Dealer Wins")
+                print("\nDealer Wins")
                 break
             elif dealerHand > 21:
                 playerWin += 1
-                print("You Win")
+                print("\nYou Win")
                 break
             elif hand == dealerHand:
-                print("It's a tie! No one wins!")
+                print("\nIt's a tie! No one wins!")
                 gameProgress += 1
                 break
             elif hand > dealerHand:
                 playerWin += 1
-                print("You Win")
+                print("\nYou Win")
                 break
             elif dealerHand < hand:
                 dealerWin += 1
-                print("Dealer Wins")
+                print("\nDealer Wins")
                 break
 
         elif choice == 3:
