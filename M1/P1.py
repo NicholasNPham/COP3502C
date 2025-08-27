@@ -24,7 +24,7 @@ while gameProgress:
             card = rng.next_int(13) + 1
             if card == 1:
                 hand += card
-                print('Your card is ACE')
+                print('Your card is ACE!')
                 print(f'Your hand is {hand}')
             elif 2 <= card <= 10:
                 hand += card
@@ -32,15 +32,15 @@ while gameProgress:
                 print(f'Your hand is {hand}')
             elif card == 11:
                 hand += 10
-                print(f'Your card is JACK')
+                print(f'Your card is JACK!')
                 print(f'Your hand is {hand}')
             elif card == 12:
                 hand += 10
-                print(f'Your card is QUEEN')
+                print(f'Your card is QUEEN!')
                 print(f'Your hand is {hand}')
             elif card == 13:
                 hand += 10
-                print(f'Your card is KING')
+                print(f'Your card is KING!')
                 print(f'Your hand is {hand}')
 
             if hand == 21:
@@ -54,8 +54,9 @@ while gameProgress:
 
         elif choice == 2:
             # Dealer's Draw
-            dealerHand = rng.next_int(13) + 16
-            print(f"Your dealer hand is {dealerHand}")
+            dealerHand = rng.next_int(11) + 16
+            print(f"Dealer's hand: {dealerHand}")
+            print(f"Your hand is {hand}")
             if dealerHand == 21:
                 dealerWin += 1
                 print("Dealer Wins")
@@ -65,7 +66,7 @@ while gameProgress:
                 print("You Win")
                 break
             elif hand == dealerHand:
-                print('Its a Tie.....')
+                print("It's a tie! No one wins!")
                 gameProgress += 1
                 break
             elif hand > dealerHand:
