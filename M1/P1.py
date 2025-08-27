@@ -95,7 +95,7 @@ while gameProgress:
             print(f'Number of Player wins: {playerWin}')
             print(f'Number of Dealer wins: {dealerWin}')
             print(f'Number of tie games: {gameTied}')
-            print(f'total # of games is: {gameNumber}')
+            print(f'total # of games is: {gameNumber - 1}')
             print(f'Percentage of Player wins: {playerWin/(gameNumber - 1):.2f}%')
 
         elif choice == 4:
