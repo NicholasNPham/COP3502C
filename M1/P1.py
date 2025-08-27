@@ -19,7 +19,7 @@ while gameProgress:
     print(f'Your card is {card}')
     print(f'Your hand is {hand}')
     while True:
-        choice = input("1. Get Another Card \n2. Hold Hand \n3. Print statistics \n4. Exit \nChoose your choice: ")
+        choice = int(input("1. Get Another Card \n2. Hold Hand \n3. Print statistics \n4. Exit \nChoose your choice: "))
         if choice == 1:
             card = rng.next_int(13) + 1
             if card == 1:
@@ -52,7 +52,6 @@ while gameProgress:
                 print("Dealer Win")
                 break
 
-
         elif choice == 2:
             # Dealer's Draw
             dealerHand = rng.next_int(13) + 16
@@ -77,3 +76,12 @@ while gameProgress:
                 dealerWin += 1
                 print("Dealer Wins")
                 break
+
+        elif choice == 3:
+            print()
+
+        elif choice == 4:
+            gameProgress = False
+            break
+        else:
+            print("Invalid Input")
