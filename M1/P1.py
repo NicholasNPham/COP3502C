@@ -19,4 +19,26 @@ while gameProgress:
     print(f'Your card is {card}')
     print(f'Your hand is {hand}')
     while True:
-        choice = input("1. Get Another Card \n2. Hold Hand \n3. Print statistics \n4. Exit \nChoose your choice: ") #29:16
+        choice = input("1. Get Another Card \n2. Hold Hand \n3. Print statistics \n4. Exit \nChoose your choice: ")
+        if choice == 1:
+            card = rng.next_int(13) + 1
+            if card == 1:
+                hand += card
+                print('Your card is ACE')
+                print(f'Your hand is {hand}')
+            elif 2 <= card <= 10:
+                hand += card
+                print(f'Your card is {card}')
+                print(f'Your hand is {hand}')
+            elif card == 11:
+                hand += 10
+                print(f'Your card is JACK')
+                print(f'Your hand is {hand}')
+            elif card == 12:
+                hand += 10
+                print(f'Your card is QUEEN')
+                print(f'Your hand is {hand}')
+            elif card == 13:
+                hand += 10
+                print(f'Your card is KING')
+                print(f'Your hand is {hand}')
