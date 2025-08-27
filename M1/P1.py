@@ -12,18 +12,25 @@ while gameProgress:
     gameNumber += 1
     print(f'Start Game #{gameNumber}')
     card = rng.next_int(13) + 1 #[0-12]
+    # Resetting Hand Count
+    hand = card
+
     if card == 1:
+        hand = 1
         card = "ACE"
     elif 2 <= card <= 10:
         hand = card
     elif card == 11:
+        hand = 10
         card = "JACK"
+        hand = 10
     elif card == 12:
         card = "QUEEN"
     else:
+        hand = 10
         card = "KING"
     print(f'\nYour card is {card}!')
-    print(f'Your hand is {hand}')
+    print(f'Your hand is: {hand}')
     while True:
         choice = int(input("\n1. Get Another Card \n2. Hold Hand \n3. Print statistics \n4. Exit \n\nChoose your choice: "))
         if choice == 1:
@@ -34,7 +41,7 @@ while gameProgress:
                 print(f'Your hand is {hand}')
             elif 2 <= card <= 10:
                 hand += card
-                print(f'Your card is {card}')
+                print(f'Your card is {card}!')
                 print(f'Your hand is {hand}')
             elif card == 11:
                 hand += 10
@@ -51,11 +58,11 @@ while gameProgress:
 
             if hand == 21:
                 playerWin = 1
-                print("You Win")
+                print("\nBLACKJACK! You win!\n")
                 break
             elif hand > 21:
                 dealerWin += 1
-                print("Dealer Win")
+                print("\nYou exceeded 21! You lose.\n")
                 break
 
         elif choice == 2:
@@ -65,30 +72,30 @@ while gameProgress:
             print(f"Your hand is {hand}")
             if dealerHand == 21:
                 dealerWin += 1
-                print("\nDealer Wins")
+                print("\nDealer Wins!\n")
                 break
             elif dealerHand > 21:
                 playerWin += 1
-                print("\nYou Win")
+                print("\nYou Win!\n")
                 break
             elif hand == dealerHand:
-                print("\nIt's a tie! No one wins!")
+                print("\nIt's a tie! No one wins!\n")
                 gameProgress += 1
                 break
             elif hand > dealerHand:
                 playerWin += 1
-                print("\nYou Win")
+                print("\nYou Win!\n")
                 break
             elif dealerHand < hand:
                 dealerWin += 1
-                print("\nDealer Wins")
+                print("\nDealer Wins!\n")
                 break
 
         elif choice == 3:
-            print()
+            pass
 
         elif choice == 4:
             gameProgress = False
             break
         else:
-            print("Invalid Input")
+            print("Invalid input!\n\nPlease enter an integer value between 1 and 4.")
