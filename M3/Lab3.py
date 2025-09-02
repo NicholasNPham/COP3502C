@@ -22,7 +22,18 @@ while scientificCalculator:
 
     choice = input('\nEnter Menu Selection: ')
 
-    # Breaks While Loop
+    if choice == "7":
+        if numberOfCalc != 0:
+            print(f"Sum of calculations: {resultTotal}")
+            print(f"Number of calculations: {numberOfCalc}")
+            print(f"Average of calculations: {(resultTotal / numberOfCalc):.2f}")
+            choice = input('\nEnter Menu Selection: ')
+
+        else:
+            print(f"Error: No calculations yet to average!")
+
+            choice = input('\nEnter Menu Selection: ')
+
     if choice == "0":
         print("Thanks for using this calculator. Goodbye!")
         break
@@ -61,14 +72,5 @@ while scientificCalculator:
         resultTotal += result
         resultCurrent = result
 
-    elif choice == "7":
-        if numberOfCalc != 0:
-            print(f"Sum of calculations: {resultTotal}")
-            print(f"Number of calculations: {numberOfCalc}")
-            print(f"Average of calculations: {(resultTotal / numberOfCalc):.2f}")
-        else:
-            print(f"Error: No calculations yet to average!")
-
     else:
         print("Error: Invalid Selection.")
-
