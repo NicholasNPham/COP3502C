@@ -6,7 +6,17 @@ resultTotal = 0.0
 numberOfCalc = 0
 resultCurrent = 0.0
 
-menu = f"Current Result: {resultCurrent}\nCalculator Menu\n---------------\n0. Exit Program\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exponentiation\n6. Logarithm\n7. Display Average"
+menu = (f"Current Result: {resultCurrent}\n"
+        "Calculator Menu\n"
+        "---------------\n"
+        "0. Exit Program\n"
+        "1. Addition\n"
+        "2. Subtraction\n"
+        "3. Multiplication\n"
+        "4. Division\n"
+        "5. Exponentiation\n"
+        "6. Logarithm\n"
+        "7. Display Average")
 print(menu)
 
 while scientificCalculator:
