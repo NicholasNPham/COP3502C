@@ -6,19 +6,10 @@ resultTotal = 0.0
 numberOfCalc = 0
 resultCurrent = 0.0
 
-while scientificCalculator:
+menu = f"Current Result: {resultCurrent}\nCalculator Menu\n---------------\n0. Exit Program\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exponentiation\n6. Logarithm\n7. Display Average"
+print(menu)
 
-    print(f"Current Result: {resultCurrent}\n")
-    print("Calculator Menu")
-    print("---------------")
-    print("0. Exit Program")
-    print("1. Addition")
-    print("2. Subtraction")
-    print("3. Multiplication")
-    print("4. Division")
-    print("5. Exponentiation")
-    print("6. Logarithm")
-    print("7. Display Average")
+while scientificCalculator:
 
     choice = input('\nEnter Menu Selection: ')
 
@@ -27,14 +18,11 @@ while scientificCalculator:
             print(f"Sum of calculations: {resultTotal}")
             print(f"Number of calculations: {numberOfCalc}")
             print(f"Average of calculations: {(resultTotal / numberOfCalc):.2f}")
-            choice = input('\nEnter Menu Selection: ')
 
         else:
             print(f"Error: No calculations yet to average!")
 
-            choice = input('\nEnter Menu Selection: ')
-
-    if choice == "0":
+    elif  choice == "0":
         print("Thanks for using this calculator. Goodbye!")
         break
 
@@ -44,6 +32,7 @@ while scientificCalculator:
         # This is to get Input
         a = input('Enter first operand: ')
         b = input('Enter second operand: ')
+        print(menu)
         # Noticed Test Case "RESULT" meaning result equals to last result current
 
         if a == "RESULT":
@@ -69,8 +58,8 @@ while scientificCalculator:
         elif choice == "6":
             result = math.log(b, a)
 
-        resultTotal += result
         resultCurrent = result
+        resultTotal += result
 
     else:
         print("Error: Invalid Selection.")
