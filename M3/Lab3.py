@@ -22,64 +22,42 @@ while scientificCalculator:
 
     choice = input('\nEnter Menu Selection: ')
 
+    # Breaks While Loop
     if choice == "0":
         print("Thanks for using this calculator. Goodbye!")
         break
 
-    if choice == "1":
+    elif choice in ["1", "2", "3", "4", "5", "6"]:
+        # Adds step to count of number of calculations
         numberOfCalc += 1
-        a = float(input('Enter first operand: '))
-        b = float(input('Enter second operand: '))
+        # This is to get Input
+        a = input('Enter first operand: ')
+        b = input('Enter second operand: ')
+        # Noticed Test Case "RESULT" meaning result equals to last result current
 
         if a == "RESULT":
-            result = resultCurrent + b
-        elif b == "RESULT":
-            result = a + resultCurrent
+            a = resultCurrent
         else:
-            result = resultCurrent + resultCurrent
+            a = float(a)
 
-        result = a + b
-        resultTotal += result
-        resultCurrent = result
+        if b == "RESULT":
+            b = resultCurrent
+        else:
+            b = float(b)
 
-    elif choice == "2":
-        numberOfCalc += 1
-        a = float(input('Enter first operand: '))
-        b = float(input('Enter second operand: '))
-        result = a - b
-        resultTotal += result
-        resultCurrent = result
+        if choice == "1":
+            result = a + b
+        elif choice == "2":
+            result = a - b
+        elif choice == "3":
+            result = a * b
+        elif choice == "4":
+            result = a / b
+        elif choice == "5":
+            result = a ** b
+        elif choice == "6":
+            result = math.log(b, a)
 
-    elif choice == "3":
-        numberOfCalc += 1
-        a = float(input('Enter first operand: '))
-        b = float(input('Enter second operand: '))
-        result = a * b
-        resultTotal += result
-        resultCurrent = result
-
-    elif choice == "4":
-        numberOfCalc += 1
-        a = float(input('Enter first operand: '))
-        b = float(input('Enter second operand: '))
-        result = a / b
-        resultTotal += result
-        resultCurrent = result
-
-    elif choice == "5": #result Total = -2 resultcurrent = -2
-        numberOfCalc += 1
-        a = float(input('Enter first operand: '))
-        b = float(input('Enter second operand: '))
-        result = a ** b
-        resultTotal += result
-        resultCurrent = result
-
-    elif choice == "6":
-        pass
-        numberOfCalc += 1
-        a = float(input('Enter first operand: '))
-        b = float(input('Enter second operand: '))
-        result = math.log(b, a)
         resultTotal += result
         resultCurrent = result
 
