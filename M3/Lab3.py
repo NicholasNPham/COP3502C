@@ -1,27 +1,29 @@
 import math
 
 scientificCalculator = True
-
 resultTotal = 0.0
 numberOfCalc = 0
 resultCurrent = 0.0
 
-menu = (f"Current Result: {resultCurrent}\n"
-        "Calculator Menu\n"
-        "---------------\n"
-        "0. Exit Program\n"
-        "1. Addition\n"
-        "2. Subtraction\n"
-        "3. Multiplication\n"
-        "4. Division\n"
-        "5. Exponentiation\n"
-        "6. Logarithm\n"
-        "7. Display Average")
-print(menu)
-
 while scientificCalculator:
 
+    menu = (f"Current Result: {resultCurrent}\n"
+            "\nCalculator Menu\n"
+            "---------------\n"
+            "0. Exit Program\n"
+            "1. Addition\n"
+            "2. Subtraction\n"
+            "3. Multiplication\n"
+            "4. Division\n"
+            "5. Exponentiation\n"
+            "6. Logarithm\n"
+            "7. Display Average")
+    print(menu)
     choice = input('\nEnter Menu Selection: ')
+
+    if choice not in ('0', '1', '2', '3', '4', '5', '6', '7'):
+        print("Error: Invalid selection!")
+        choice = input('\nEnter Menu Selection: ')
 
     if choice == "7":
         if numberOfCalc != 0:
@@ -31,6 +33,12 @@ while scientificCalculator:
 
         else:
             print(f"Error: No calculations yet to average!")
+
+        choice = input('\nEnter Menu Selection: ')
+        if choice == "0":
+            print("Thanks for using this calculator. Goodbye!")
+            scientificCalculator = False
+        continue
 
     elif  choice == "0":
         print("Thanks for using this calculator. Goodbye!")
@@ -42,7 +50,6 @@ while scientificCalculator:
         # This is to get Input
         a = input('Enter first operand: ')
         b = input('Enter second operand: ')
-        print(menu)
         # Noticed Test Case "RESULT" meaning result equals to last result current
 
         if a == "RESULT":
@@ -56,20 +63,19 @@ while scientificCalculator:
             b = float(b)
 
         if choice == "1":
-            result = a + b
+            resultCurrent = a + b
         elif choice == "2":
-            result = a - b
+            resultCurrent = a - b
         elif choice == "3":
-            result = a * b
+            resultCurrent = a * b
         elif choice == "4":
-            result = a / b
+            resultCurrent = a / b
         elif choice == "5":
-            result = a ** b
+            resultCurrent = a ** b
         elif choice == "6":
-            result = math.log(b, a)
+            resultCurrent = math.log(b, a)
 
-        resultCurrent = result
-        resultTotal += result
+        resultTotal += resultCurrent
 
-    else:
-        print("Error: Invalid Selection.")
+
+# resultTotal += result
