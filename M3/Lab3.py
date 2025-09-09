@@ -1,14 +1,29 @@
+# Do Not Commit EVER.
 import math
 
-scientificCalculator = True
-resultTotal = 0.0
-numberOfCalc = 0
-resultCurrent = 0.0
+calculator = True
+choice = True
 
-while scientificCalculator:
+current_result = 0.0
+sum_of_calculations = 0.0
+number_of_calculations = 0
 
-    menu = (f"Current Result: {resultCurrent}\n"
-            "\nCalculator Menu\n"
+# menu = (f"Current Result: {current_result}\n"
+#           "\nCalculator Menu\n"
+#           "---------------\n"
+#           "0. Exit Program\n"
+#           "1. Addition\n"
+#           "2. Subtraction\n"
+#           "3. Multiplication\n"
+#           "4. Division\n"
+#           "5. Exponentiation\n"
+#           "6. Logarithm\n"
+#           "7. Display Average\n")
+
+while calculator:
+    # This prints Menu First Time after program Starts
+    print(f"Current Result: {current_result}\n")
+    menu = ("\nCalculator Menu\n"
             "---------------\n"
             "0. Exit Program\n"
             "1. Addition\n"
@@ -17,65 +32,58 @@ while scientificCalculator:
             "4. Division\n"
             "5. Exponentiation\n"
             "6. Logarithm\n"
-            "7. Display Average")
+            "7. Display Average\n")
     print(menu)
-    choice = input('\nEnter Menu Selection: ')
 
-    if choice not in ('0', '1', '2', '3', '4', '5', '6', '7'):
-        print("Error: Invalid selection!")
-        choice = input('\nEnter Menu Selection: ')
-
-    if choice == "7":
-        if numberOfCalc != 0:
-            print(f"Sum of calculations: {resultTotal}")
-            print(f"Number of calculations: {numberOfCalc}")
-            print(f"Average of calculations: {(resultTotal / numberOfCalc):.2f}")
-
-        else:
-            print(f"Error: No calculations yet to average!")
-
-        choice = input('\nEnter Menu Selection: ')
+    # Second While Loop
+    while choice:
+        # First Choice
+        choice = input("Enter Menu Selection: ")
         if choice == "0":
             print("Thanks for using this calculator. Goodbye!")
-            scientificCalculator = False
-        continue
+            calculator = False
+            break
+        elif choice == "7":
+            if number_of_calculations == 0:
+                print("Error: No calculations yet to average!\n")
+                continue
+            else:
+                print(f'Sum of calculations: {sum_of_calculations}')
+                print(f'Number of calculations: {number_of_calculations}')
+                print(f"Average of calculations: {(sum_of_calculations / number_of_calculations):.2f}")
+                continue
 
-    elif  choice == "0":
-        print("Thanks for using this calculator. Goodbye!")
-        break
+        elif choice in ["1", "2", "3", "4", "5", "6"]:
+            a = input("Enter first operand: ")
+            if a == "RESULT":
+                a = current_result
+            else:
+                a = float(a)
+            b = input("Enter second operand: ")
+            if b == "RESULT":
+                b = current_result
+            else:
+                b = float(b)
 
-    elif choice in ["1", "2", "3", "4", "5", "6"]:
-        # Adds step to count of number of calculations
-        numberOfCalc += 1
-        # This is to get Input
-        a = input('Enter first operand: ')
-        b = input('Enter second operand: ')
-        # Noticed Test Case "RESULT" meaning result equals to last result current
+                if choice == "1":
+                    current_result = a + b
+                if choice == "2":
+                    current_result = a - b
+                if choice == "3":
+                    current_result = a * b
+                if choice == "4":
+                    current_result = a / b
+                if choice == "5":
+                    current_result = a ** b
+                if choice == "6":
+                    current_result = math.log(b, a)
 
-        if a == "RESULT":
-            a = resultCurrent
+                sum_of_calculations += current_result
+                number_of_calculations += 1
+                print(f"Current Result: {current_result}\n")
+                print(menu)
+
         else:
-            a = float(a)
-
-        if b == "RESULT":
-            b = resultCurrent
-        else:
-            b = float(b)
-
-        if choice == "1":
-            resultCurrent = a + b
-        elif choice == "2":
-            resultCurrent = a - b
-        elif choice == "3":
-            resultCurrent = a * b
-        elif choice == "4":
-            resultCurrent = a / b
-        elif choice == "5":
-            resultCurrent = a ** b
-        elif choice == "6":
-            resultCurrent = math.log(b, a)
-
-        resultTotal += resultCurrent
+            print("Error: Invalid selection!")
 
 
-# resultTotal += result
