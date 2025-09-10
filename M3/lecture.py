@@ -4,8 +4,8 @@ num = int(input("Enter a positive number: "))
 factorial_num = num
 
 res = num
-while num > 1:
-    res *= num - 1
-    num -= 1
+
+for i in range(1, num):
+    res *= i
 
 print(f'The factorial of {factorial_num} is {res}')
