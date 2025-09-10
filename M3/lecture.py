@@ -3,9 +3,9 @@
 num = int(input("Enter a positive number: "))
 factorial_num = num
 
-res = num
+res = 1
 
-for i in range(1, num):
+for i in range(1, num+1):
     res *= i
 
 print(f'The factorial of {factorial_num} is {res}')
