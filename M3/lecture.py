@@ -1,10 +1,11 @@
-num = int(input("enter number: "))
+# Program to calculate and display the factorial number using a for loop
 
-reversedNum = 0
+num = int(input("Enter a positive number: "))
+factorial_num = num
 
-while num > 0:
-    digit = num % 10
-    reversedNum = reversedNum * 10 + digit
-    num //= 10
+res = num
+while num > 1:
+    res *= num - 1
+    num -= 1
 
-print(reversedNum)
+print(f'The factorial of {factorial_num} is {res}')
