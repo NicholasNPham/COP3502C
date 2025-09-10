@@ -1,23 +1,16 @@
-num = str(input("enter a number: "))
-list = []
-reversedList = []
+# This is from learning a new skill
 
-for i in num:
-    list.append(str(i))
+num = int(input("Enter the number: "))
+original_num = num
+reversed_num = 0
 
-for j in range(l-1, -1, -1):
-    reversedList.append(list[j])
+while num > 0:
+    last_num_of_num = num % 10
+    reversed_num = reversed_num * 10 + last_num_of_num
+    num //= 10
 
-l = len(list) # length
-counter = 0
-
-while counter < l:
-    if reversedList[counter] == list[counter]:
-        counter += 1
-        if counter == l:
-            print(f"{num} is a Palindrome")
-            break
-    else:
-        print(f"{num} is not a Palindromic Number")
-        break
+if reversed_num == original_num:
+    print(f"{original_num} is a palindrome.")
+else:
+    print(f"{original_num} is not a palindromic number.")
 
