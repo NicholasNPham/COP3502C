@@ -7,6 +7,12 @@ Module Three: Conditionals
 Module Four: Iteration
 - Learn execution flow using iterations (For and While Loops) and Statements (Break & Continue)
 ---
+Module Five: Functions 
+- Learn how to define and use functions, pass arguments, return values, and understand scope. Explore global variables, higher-order functions, and the difference between functions and methods. Gain hands-on practice with different argument types (`*args`, `**kwargs`), function reuse, and modular programming using Python modules and the `__name__ == "__main__"` construct.  
+
+---  
+Additional Knowledge:  
+- https://pythontutor.com/render.html#mode=display  
 Additional Knowledge:
 - https://pythontutor.com/render.html#mode=display
   - This visualized algo and code.
