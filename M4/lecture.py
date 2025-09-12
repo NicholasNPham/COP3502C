@@ -1,4 +1,4 @@
-"""
+r"""
 Function: A block of organized, reusable code used to perform a single related action
     - We can establish that a function requires parameters.
     - Values passed in during function invocation are known as arguments.
@@ -54,6 +54,29 @@ Arguments:
     - Keywork Arguments
         1. Allows arguments to map to parameters "by name" rather than position/
         2. Can be mixed with positional arguments, but the keyword arguments should come last.
+
+Argument List:
+    - When the number of arguments that will be passed into a function is unknown "*args" could be used to denote any arbitrary number of arguments.
+    - The function parameter **kwargs is used to pass the keywork arguments. "**kwargs** is the dictionary
+
+Function: Why Bother?
+    - Main Reasons
+        1. Modularity
+        2. Readability
+        3. Code Reuse
+        4. Abstraction
+
+Modules:
+    - A module is a file containing Python code that can be used by other modules or scripts (which is passed to the Python interpreter to execute the program"
+
+__name__ and __main__:
+    - __name__: special variable for Python that assigns a different value depending on how it contains script executes.
+        1. When a Python module or package is imported, "__name__" is set to the module's name (file name excluding .py)
+        2. When a python script is executed directly, "__name__" is set to "__main__".
+    - "__main__" is the name of the environment where top-level code is running.
+        1. Thus, "__name__" is set to "__main__" in the file that we pass into the interpreter or the top level value.
+
+    - NOTE: if __name__ = '__main__' can be kused to check where the current script is running on its own or being imported from somewhere else.
 
 """
 # Function Examples
@@ -174,6 +197,38 @@ team(name = "david", project = "Blackjack") # Same as original
 team(project = "Blackjack", name = "david") # Same as original
 # team(project = "Blackjack", "david") results in syntaxError because name is after project
 team("david", project = "Blackjack") # same as original
-"""
+# team(name = "david", "blackjack") # will result error: positional
+# team("blackjack", name = "David") # This should work, my python does not allow this.
 
-# Return Tmrw at 19:12 part 2 lecture
+# Default Arguments Example
+
+print('Hello', end=".....") # End is a default argument
+print('World')
+
+def team(name,project="Sudoku"):
+    print(name, "is working on", project)
+
+team("group1", "Blackjack")
+team(project="Blackjack", name="group1")
+team("group1", project="Blackjack")
+team("group1")
+"""
+# Argument Lists
+"""
+# ** args
+def add(*args):
+    pass
+
+def person(name, age, address):
+    pass
+
+def team(*args, **kwargs):
+    for arg in args: # the *args argument will only look that the "Key" which is Sally and Tom
+        print(arg, end=" ")
+    print()
+    for key, value in kwargs.items(): # the *kwargs argument will look the key/value pairs which is project="blackjack" and the next.
+        print(f'{key}:{value}', end=" ")
+    print()
+
+team("Sally", "Tom", project="Blackjack", group_num=2)
+"""
