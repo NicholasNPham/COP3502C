@@ -28,5 +28,36 @@ value = float(input("What is the current monetary value? "))
 currentCurrency = input("What is the current currency? ")
 desiredCurrency = input("What is the desired currency? ")
 
+def currencyToUSD(currencyAmount):
+    if currentCurrency == desiredCurrency:
+        currencyConversion = currencyAmount
+    elif currentCurrency == "CAD":
+        currencyAmount /= 1.24 # Turns into USD
+        if desiredCurrency == "YEN":
+            currencyConversion = currencyAmount * 108.59
+        elif desiredCurrency == "CAD":
+            currencyConversion = currencyAmount * 1.24
+        else:
+            currencyConversion = currencyAmount
+    elif currentCurrency == "YEN":
+        currencyAmount /= 108.59 # Turns into USD
+        if desiredCurrency == "YEN":
+            currencyConversion = currencyAmount * 108.59
+        elif desiredCurrency == "CAD":
+            currencyConversion = currencyAmount * 1.24
+        else:
+            currencyConversion = currencyAmount
+    else:
+        if desiredCurrency == "YEN":
+            currencyConversion = currencyAmount * 108.59
+        elif desiredCurrency == "CAD":
+            currencyConversion = currencyAmount * 1.24
+        else:
+            currencyConversion = currencyAmount
 
+    return currencyConversion
+
+currencyConversion = currencyToUSD(value)
+
+print(f"You have: {currencyConversion:.2f} {desiredCurrency}")
 
