@@ -21,7 +21,10 @@ elif choice == "fahrenheit":
 else:
     print("Please enter a valid choice.")
 """
+from math import remainder
+
 # Question 2
+"""
 print("Welcome to the Currency Converter! The available currencies for conversion are USD, CAD, and YEN")
 
 value = float(input("What is the current monetary value? "))
@@ -52,3 +55,19 @@ def currencyConversion(value):
 desiredValue = currencyConversion(USDValue)
 
 print(f"You have: {desiredValue:.2f} {desiredCurrency}")
+"""
+# Practice Question 3:
+"""
+def numberDivisability():
+
+    first = int(input("First number:"))
+    second = int(input("Second number:"))
+
+    remainder = first % second or second % first
+    if remainder == 0:
+        print("one is divisible by the other")
+    else:
+        print("They are not divisible")
+
+numberDivisability()
+"""
