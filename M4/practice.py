@@ -28,36 +28,27 @@ value = float(input("What is the current monetary value? "))
 currentCurrency = input("What is the current currency? ")
 desiredCurrency = input("What is the desired currency? ")
 
-def currencyToUSD(currencyAmount):
-    if currentCurrency == desiredCurrency:
-        currencyConversion = currencyAmount
-    elif currentCurrency == "CAD":
-        currencyAmount /= 1.24 # Turns into USD
-        if desiredCurrency == "YEN":
-            currencyConversion = currencyAmount * 108.59
-        elif desiredCurrency == "CAD":
-            currencyConversion = currencyAmount * 1.24
-        else:
-            currencyConversion = currencyAmount
-    elif currentCurrency == "YEN":
-        currencyAmount /= 108.59 # Turns into USD
-        if desiredCurrency == "YEN":
-            currencyConversion = currencyAmount * 108.59
-        elif desiredCurrency == "CAD":
-            currencyConversion = currencyAmount * 1.24
-        else:
-            currencyConversion = currencyAmount
+CAD_rate = 1.24
+YEN_rate = 108.59
+
+if currentCurrency == "CAD":
+    USDValue = value / CAD_rate
+elif currentCurrency == "YEN":
+    USDValue = value / YEN_rate
+else:
+    USDValue = value
+
+def currencyConversion(value):
+
+    if desiredCurrency == "CAD":
+        desired = USDValue * CAD_rate
+    elif desiredCurrency == "YEN":
+        desired = USDValue * YEN_rate
     else:
-        if desiredCurrency == "YEN":
-            currencyConversion = currencyAmount * 108.59
-        elif desiredCurrency == "CAD":
-            currencyConversion = currencyAmount * 1.24
-        else:
-            currencyConversion = currencyAmount
+        desired = USDValue
 
-    return currencyConversion
+    return desired
 
-currencyConversion = currencyToUSD(value)
+desiredValue = currencyConversion(USDValue)
 
-print(f"You have: {currencyConversion:.2f} {desiredCurrency}")
-
+print(f"You have: {desiredValue:.2f} {desiredCurrency}")
