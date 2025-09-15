@@ -87,3 +87,43 @@ n = int(input("Number of years for saving: "))
 
 growth(pv, r, n)
 """
+# Practice Question 5:
+"""
+def bodyMassIndex(weight, height):
+    bmi = weight / (height ** 2)
+    return bmi
+
+weightInKilo = float(input("Weight in Kilograms: "))
+heightInMeters = float(input("Height in meters: "))
+
+index = bodyMassIndex(weightInKilo, heightInMeters)
+
+if index < 18.5:
+    print(f"Your BMI is {index:.2f}.\nYou are underweight.")
+elif 18.5 <= index < 24.9:
+    print(f"Your BMI is {index:.2f}.\nYou are normal weight")
+elif 24.9 <= index < 29.9:
+    print(f"Your BMI is {index:.2f}.\nYou are overweight")
+else:
+    print(f"Your BMI is {index:.2f}.\nYou are obese")
+"""
+# Practice Question 6:
+"""
+def role(dice1, dice2):
+    if dice1 < dice2:
+        low = dice1
+        high = dice2
+    else:
+        low = dice2
+        high = dice1
+
+    for i in range(1,low+1):
+        for j in range(1,high+1):
+            if i > j:
+                print("", end="")
+            else:
+                print(f"({i},{j})", end=" ")
+        print()
+
+role(2,3)
+"""
