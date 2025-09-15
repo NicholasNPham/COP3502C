@@ -71,3 +71,19 @@ def numberDivisability():
 
 numberDivisability()
 """
+# Practice Question 4:
+"""
+def growth(first, second, third):
+    pv = first
+    r = second
+    n = third
+
+    futureValue = pv * (1 + r) ** n
+    print(f"Estimated Future Value: {futureValue:.2f}")
+
+pv = float(input("Initial savings amount: $ "))
+r = int(input("Annual interest rate: ")) / 100
+n = int(input("Number of years for saving: "))
+
+growth(pv, r, n)
+"""
