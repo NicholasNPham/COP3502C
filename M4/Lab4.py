@@ -30,22 +30,17 @@ def is_prime(n):
 
 def print_prime_factors(n):
     primeFactorList = []
-    count = 0
+    originalNum = n
+    count = 2
 
-    for i in range(1, n+1):
-        if n % i == 0:
-            primeFactorList.append(i)
+    while n > 1:
+        if n % count == 0:
+            primeFactorList.append(count)
+            n /= count
+        else:
             count += 1
 
+    strPrime = f"{originalNum} = "+" * ".join(str(prime) for prime in primeFactorList)
 
-
-    if count == 2:
-        return primeFactorList[1]
-    else:
-        return primeFactorList
-
-
-print(print_prime_factors(12))
-
-
+    print(strPrime)
 
