@@ -26,5 +26,12 @@ Binary Representation:
 
 Practice Question: Convert binary number 01001001 to decimal number.
 
-Stopped at 12:47
+Octal and Hexadecimal:
+Binary to Octal: Group 3 bits at a time
+Binary to Hexadecimal: Group 4 bits at a time
+- By convention, octal is prefixed with '0', while hex is prefixed with '0x'. Binary Numbers are prefixed with '0b'.
+
+Practice Question: Look at notebook for information.
+
+When converting binary to octal or binary or hexadecimal: Convert with powers of two because it starts with binary.
 """
