@@ -34,4 +34,43 @@ Binary to Hexadecimal: Group 4 bits at a time
 Practice Question: Look at notebook for information.
 
 When converting binary to octal or binary or hexadecimal: Convert with powers of two because it starts with binary.
+
+NUMERIC & ITERABLE TYPES
+
+Overview of Built-In Types
+- Most built-in types are one of...
+    - Numeric (Number)
+    - Sequence (Ordered collection of objects)
+    - Container (Unordered)
+- All Python values are one of...
+    - Mutable (Changeable)
+    - Immutable (Fixed)
+
+Numbers: Numbers can be manipulated using arithmetic operators.
+
+String: A string is a sequence of characters. String is immutable
+
+ASCII Code
+- ASCII stands for America nStandard Code for Information Interchange. ASCII code is the numerical representation  of a
+  character such as a "a" or "@" or an action of some sort.
+    - ASCII code is used to represent every possible character as a unique number, known as code point.
+    - We could convert between a text character and encoded value using ord() or chr().
+"""
+# String Example
+"""
+str = "Python"
+
+# str[1] = "x" # Results in TypeError because string is immutable.
+
+print(str[1:4:2]) # This gets a specific part of the immutable string and adds a step to get only "y" and "h"
+print(str[-1:-4:-1]) # This gets the last index and a specific part of the string backwards in a -1 step.
+print(str[:5]) # This gets the first 5 index starting from 0 to 4.
+print(str[::-1]) # This reverses the string.
+print(str[1:]) # This gets the last 5 index starting from 1 to 5. 
+"""
+# ASCII Example
+"""
+str = "A"
+print(ord(str)) # prints 65
+print(chr(69)) # prints letter E
 """
