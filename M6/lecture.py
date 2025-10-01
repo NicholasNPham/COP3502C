@@ -55,6 +55,20 @@ ASCII Code
   character such as a "a" or "@" or an action of some sort.
     - ASCII code is used to represent every possible character as a unique number, known as code point.
     - We could convert between a text character and encoded value using ord() or chr().
+
+Overview of Built-In Types
+- Most Built-in types are one of...
+    - Numeric (number)
+    - Sequence (ordered collection of objects)
+    - Container (unordered)
+- All Python values are one of...
+    - Mutable (Changeable)
+    - Immutable (Fixed)
+
+Lists:
+- Lists (mutable) can be indexed from its front or back. Typically, lists are surrounded with brackets [].
+- A Slice can be obtained using [m:n], where "m" is the inclusive starting point and "n" is the exclusive ending point.
+
 """
 # String Example
 """
@@ -73,4 +87,46 @@ print(str[1:]) # This gets the last 5 index starting from 1 to 5.
 str = "A"
 print(ord(str)) # prints 65
 print(chr(69)) # prints letter E
+"""
+# List Example
+"""
+var = 56
+my_list = [23, 45, 67, 89] # index = [0, 1, 2, 3] or index = [-4, -3, -2, -1]
+print(my_list) # prints [23, 45, 67, 89]
+print(my_list[1]) # prints 45
+print(my_list[-1]) # prints 89
+print(my_list[0:3]) # prints [23, 45, 67] 
+print(my_list[0:3:2]) # prints [23, 67]
+print(my_list[-1:-3:-1]) # prints [89, 67]
+print(my_list[:] # prints the same list but a copy of it
+"""
+# List Example 2
+"""
+my_list = [23, 56, 43, 78, 99]
+my_list[0] = 100 # changes the first index value
+print(my_list) # prints [100, 56, 43, 78, 99]
+
+# my_list = [23, 56, 43, 78, 99]
+# my_list[0:2] = 100
+# print(my_list) # Results in typeError cannot change the value with a range
+
+my_list = [23, 56, 43, 78, 99]
+my_list[0:2] = [100] # the brackets in the new value allow for mutable change
+print(my_list) # prints [100, 43, 78, 99] because its changes index 0, 1
+
+my_list = [23, 56, 43, 78, 99]
+my_list[0:2] = [100, 200, 300, 400, 500] # the brackets in the new value allow for mutable change
+print(my_list) # prints [100, 43, 78, 99] because its changes index 0, 1
+
+# my_list = [23, 56, 43, 78, 99]
+# my_list[0:4:2] = [100, 200, 300, 400, 500]
+# print(my_list) # results in TypeError because it cannot match 5 values to only two positions with a step
+
+my_list = [23, 56, 43, 78, 99]
+my_list[0:4:2] = [100, 200] # the brackets in the new value allow for mutable change
+print(my_list) # prints [100, 56, 200, 78, 99] in iterations of index 0 and index 2
+
+# my_list = [23, 56, 43, 78, 99]
+# my_list[0:4:2] = [100]
+# print(my_list) # returns value error because it cannot 1 value with two positions with a step.
 """
