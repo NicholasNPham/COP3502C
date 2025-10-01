@@ -69,6 +69,29 @@ Lists:
 - Lists (mutable) can be indexed from its front or back. Typically, lists are surrounded with brackets [].
 - A Slice can be obtained using [m:n], where "m" is the inclusive starting point and "n" is the exclusive ending point.
 
+Assignment to Slicing
+- Assignment to slices can change the size of the list or clear it entirely. We assign only iterable and not a single element to a slice.
+
+Built-In Functions in Lists
+- list.append(#)
+- list.extend(#,#,#)
+- list.insert(index, #)
+- list.remove(#)
+- list.pop(index)
+- list.clear()
+
+List Comprehensions:
+List comprehension provides a shorter syntax to create a new list by iterating over another iterable and modifying each element.
+
+List Nesting:
+Embedding a list inside another list is known as list nesting.
+
+Two-Dimensional Lists:
+Two-dimensional list is a list within a list. It represents a table with rows and columns.
+
+Shallow Copy:
+A shallow copy constructs a new collection object and then populate it with references to the child objects found in the original.
+
 """
 # String Example
 """
@@ -129,4 +152,52 @@ print(my_list) # prints [100, 56, 200, 78, 99] in iterations of index 0 and inde
 # my_list = [23, 56, 43, 78, 99]
 # my_list[0:4:2] = [100]
 # print(my_list) # returns value error because it cannot 1 value with two positions with a step.
+"""
+# List Example 3
+"""
+a = [1, 2, 3, 4]
+b = [5, 6]
+c = a + b
+print(c) # prints [1, 2, 3, 4, 5, 6]
+a.extend(b)
+print(a, b) # prints [1, 2, 3, 4, 5, 6] [5, 6]
+
+d = [6] * 10
+print(d) # prints [6, 6, 6, 6, 6, 6, 6, 6, 6, 6]
+"""
+# Nesting Lists
+"""
+nestedList = [[23, 45, 67],[34, 56], [78, 67, 89]] # index = [[0], [1], [2]]
+print(nestedList) # prints [[23, 45, 67], [34, 56], [78, 67, 89]]
+print(nestedList[0]) # prints [23, 45, 67]
+print(nestedList[0][1]) # prints 45
+print(nestedList[0][1:]) # prints [45, 67]
+"""
+# Nested List example 2:
+"""
+nestedList = [[23, 45, 67],[34, 56], [78, 67, 89], [12, 45, 67]]
+
+res = []
+for sublist in nestedList:
+    res.append(sum(sublist))
+
+print(res) # [135, 90, 234, 124]
+
+res2 = [sum(sublist) for sublist in nestedList]
+print(res2)
+"""
+# Two Dimensional Lists
+"""
+numRows, numCols = 3, 4
+board = []
+
+for rows in range(numRows): # dictates how many indexes
+   r = [] # Introduce an empty list
+   for cols in range(numCols): # How many indexes per index
+       r.append("-")
+   board.append(r)
+print(board)
+
+board2 = [["-" for cols in range(numCols)] for rows in range(numRows)]
+print(board2)
 """
