@@ -68,18 +68,23 @@ def capitalize(string):
 
     return res
 
-print(capitalize("heLLO OTHer uSer weLcomE"))
-#returns “Hello other user Welcome”
+# print(capitalize("heLLO OTHer uSer weLcomE")) #returns “Hello other user Welcome”
+# print(capitalize("SIZE OF DESK")) #returns “size of desk”
+# print(capitalize("NEW dRUMs foR SAlE")) #returns “new drums For sale”
+# print(capitalize("this is a cool sentence")) #returns “This Is A Cool sentence”
 
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-print(capitalize("SIZE OF DESK"))
-#returns “size of desk”
+def partition(ls, amount):
+    i = 0
+    j = amount
+    board = []
 
+    for n in range(0, len(ls), amount):
+        board.append(numbers[n: n + amount])
 
-print(capitalize("NEW dRUMs foR SAlE"))
-#returns “new drums For sale”
+    return board
 
-
-print(capitalize("this is a cool sentence"))
-#returns “This Is A Cool sentence”
-
+# print(partition(numbers, 3)) # Should output: [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
+# print(partition(numbers, 5)) # Should output: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]
+# print(partition(numbers, 2)) # Should output: [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]]
