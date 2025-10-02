@@ -21,23 +21,6 @@ def bin(number):
 # print(bin(255))     # Should output: 11111111
 # print(bin(12))      # Should output: 1100
 
-# def capitalize(string):
-#     original = string
-#     formattedOriginal = ""
-#
-#     for char in original:
-#         if ord(char) == 32:
-#             formattedOriginal += chr(ord(char))
-#         elif ord(char) <= 90:
-#             formattedOriginal += chr(ord(char) + 32)
-#         else:
-#             formattedOriginal += chr(ord(char))
-#
-#     return formattedOriginal
-#
-#
-# print(capitalize("heLLO OTHer uSer weLcomE"))
-
 def capitalize(string):
     newList = []
     res = ""
