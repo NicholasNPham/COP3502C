@@ -59,8 +59,6 @@ def capitalize(string):
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 def partition(ls, amount):
-    i = 0
-    j = amount
     board = []
 
     for n in range(0, len(ls), amount):
