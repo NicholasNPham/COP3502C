@@ -26,3 +26,38 @@ def count_items(mylist):
 # print(count_items(["a", "b", "c", "a", "aa", "c", "hello"]))
 # print(count_items([0, 5, 4, 6, 5, 5, 9, 5, 4, 4, 8, 8, 9, 4, 9]))
 # print(count_items("hello world"))
+
+battle_data = {
+    "Trisharp": {
+        "loss": ["Togehug", "Psygoose"],
+        "win": ["Pikabu", "Bulbizard"],
+    },
+    "Infernchimp": {
+        "loss": ["Togehug", "Pikabu"],
+        "win": ["Bulbizard", "Tehog"],
+    },
+    "Tehog": {
+        "loss": ["Togehug", "Charasaur"],
+        "win": ["Bulbizard", "Pikabu"]
+    },
+    "Psygoose": {
+        "loss": ["Togehug", "Pikabu"],
+        "win": ["Bulbizard", "Infernchimp"]
+    },
+}
+
+def list_fighters(battle_data):
+    fighters = []
+
+    for key, value in battle_data.items():
+        fighters.append(key)
+        for key, value in value.items():
+            for character in value:
+                fighters.append(character)
+
+    listOfFighters = list(set(fighters))
+    listOfFighters.sort()
+    return listOfFighters
+
+print(list_fighters(battle_data))
+
