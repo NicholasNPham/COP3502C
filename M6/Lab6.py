@@ -49,26 +49,40 @@ def main():
 
     while True:
 
+        # Player 1
         if player1 % 2 == 0:
             chip_type = "x"
             col = int(input("Player 1: Which column would you like to choose? "))
-            if col <= len(board):
-                insert_chip(board, col, chip_type)
-                player1 += 1
-                print_board(board)
-            else:
+
+            if col < 0 or col >= len(board[0]):
                 print("Enter Valid Column")
                 continue
+            else:
+                if board[-1][col] != "_":
+                        print("Column is Full, Choose Another")
+                        continue
+                else:
+                    insert_chip(board, col, chip_type[0])
+                    player1 += 1
+                    print_board(board)
+
+        # Player 2
         else:
             chip_type = "o"
             col = int(input("Player 2: Which column would you like to choose? "))
-            if col <= len(board):
-                insert_chip(board, col, chip_type)
-                player1 += 1
-                print_board(board)
-            else:
+
+            if col < 0 or col >= len(board[0]):
                 print("Enter Valid Column")
                 continue
+            else:
+                if board[-1][col] != "_":
+                    print("Column is Full, Choose Another")
+                    continue
+                else:
+                    insert_chip(board, col, chip_type[0])
+                    player1 += 1
+                    print_board(board)
+
         # print(board) # This is the print the list
 
 if __name__ == '__main__':
