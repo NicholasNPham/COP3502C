@@ -16,6 +16,41 @@ def display_menu():
     print("8. Display Hex RLE Data")
     print("9. Display Hex Flat Data\n")
 
+def string_to_rle(string):
+    stringRunValueList = []
+    runValueList = []
+
+    hexadecimalDict = {"a": 10, "b": 11, "c": 12, "d": 13, "e": 14, "f": 15}
+
+    runValue = string.split(":")
+
+    for section in runValue:
+        if len(section) == 3:
+            stringRunValueList.append(section[:2])
+            stringRunValueList.append(section[-1].lower())
+        else:
+            stringRunValueList.append(section[:1])
+            stringRunValueList.append(section[-1].lower())
+
+    for num in stringRunValueList:
+        if num in hexadecimalDict:
+            runValueList.append(hexadecimalDict[num])
+        else:
+            runValueList.append(int(num))
+
+    return runValueList
+
+def decode_rle(rle_data):
+    decodedList = []
+
+    for i in range(0, len(rle_data), 2):
+        count = rle_data[i]
+        value = rle_data[i + 1]
+        for c in range(count):
+            decodedList.append(value)
+
+    return decodedList
+
 def main():
     print("Welcome to the RLE image encoder!")
     print("Displaying Spectrum Image:")
@@ -31,6 +66,12 @@ def main():
         elif option == 2:
             image_data = console_gfx.test_image
             print("Test image data loaded.")
+
+        elif option == 3:
+            input_data = input("Enter an RLE string to be decoded: ")
+            image_data = decode_rle(string_to_rle(input_data))
+
+
         elif option == 6:
             console_gfx.display_image(image_data)
 
