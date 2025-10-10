@@ -26,10 +26,10 @@ def string_to_rle(string):
 
     for section in runValue:
         if len(section) == 3:
-            stringRunValueList.append(section[:2])
+            stringRunValueList.append(section[:2].lower())
             stringRunValueList.append(section[-1].lower())
         else:
-            stringRunValueList.append(section[:1])
+            stringRunValueList.append(section[:1].lower())
             stringRunValueList.append(section[-1].lower())
 
     for num in stringRunValueList:
@@ -70,6 +70,16 @@ def main():
         elif option == 3:
             input_data = input("Enter an RLE string to be decoded: ")
             image_data = decode_rle(string_to_rle(input_data))
+        elif option == 4:
+            input_data = input("Enter the hex string holding RLE data: ")
+            readableInputData = ""
+
+            while len(input_data) > 0:
+                readableInputData += input_data[0:2] + ":"
+                input_data = input_data[2:]
+
+            image_data = decode_rle(string_to_rle(readableInputData[:-1]))
+
 
 
         elif option == 6:
