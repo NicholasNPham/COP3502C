@@ -54,8 +54,27 @@ def count_runs(flat_data):
                     count += 1
     return count
 
+
 def encode_rle(flat_data):
-    pass
+    list = []
+    count = 1
+
+    for i in range(len(flat_data) - 1):
+        if flat_data[i] == flat_data[i + 1]:
+            count += 1
+            if count % 15 == 0:
+                list.append(count)
+                list.append(flat_data[i])
+                count = 0
+        else:
+            list.append(count)
+            list.append(flat_data[i])
+            count = 1
+
+    list.append(count)
+    list.append(flat_data[-1])
+
+    return list
 
 def get_decoded_length(rle_data):
     pass
