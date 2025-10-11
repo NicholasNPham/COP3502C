@@ -16,6 +16,54 @@ def display_menu():
     print("8. Display Hex RLE Data")
     print("9. Display Hex Flat Data\n")
 
+
+def to_hex_string(data):
+    string = ""
+
+    for num in data:
+        if num == 10:
+            string += "a"
+        elif num == 11:
+            string += "b"
+        elif num == 12:
+            string += "c"
+        elif num == 13:
+            string += "d"
+        elif num == 14:
+            string += "e"
+        elif num == 15:
+            string += "f"
+        else:
+            string += str(num)
+
+    return string
+
+def count_runs(flat_data):
+    pass
+
+def encode_rle(flat_data):
+    pass
+
+def get_decoded_length(rle_data):
+    pass
+
+def decode_rle(rle_data):
+    decodedList = []
+
+    for i in range(0, len(rle_data), 2):
+        count = rle_data[i]
+        value = rle_data[i + 1]
+        for c in range(count):
+            decodedList.append(value)
+
+    return decodedList
+
+def string_to_data(data_string):
+    pass
+
+def to_rle_string(data_string):
+    pass
+
 def string_to_rle(string):
     stringRunValueList = []
     runValueList = []
@@ -39,17 +87,6 @@ def string_to_rle(string):
             runValueList.append(int(num))
 
     return runValueList
-
-def decode_rle(rle_data):
-    decodedList = []
-
-    for i in range(0, len(rle_data), 2):
-        count = rle_data[i]
-        value = rle_data[i + 1]
-        for c in range(count):
-            decodedList.append(value)
-
-    return decodedList
 
 def main():
     print("Welcome to the RLE image encoder!")
