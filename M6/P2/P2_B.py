@@ -77,7 +77,13 @@ def encode_rle(flat_data):
     return list
 
 def get_decoded_length(rle_data):
-    pass
+    sum = 0
+
+    for i in range(len(rle_data)):
+        if i % 2 == 0:
+            sum += rle_data[i]
+
+    return sum
 
 def decode_rle(rle_data):
     decodedList = []
