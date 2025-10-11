@@ -39,7 +39,20 @@ def to_hex_string(data):
     return string
 
 def count_runs(flat_data):
-    pass
+    count = 1
+    streak = 0
+
+    for i in range(len(flat_data)-1):
+        if flat_data[i] != flat_data[i+1]:
+            streak = 0
+            count += 1
+        else:
+            if flat_data[i] == flat_data[i+1]:
+                streak += 1
+                if streak % 15 == 0:
+                    streak = 0
+                    count += 1
+    return count
 
 def encode_rle(flat_data):
     pass
