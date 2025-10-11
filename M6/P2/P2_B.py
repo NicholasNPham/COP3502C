@@ -97,7 +97,27 @@ def decode_rle(rle_data):
     return decodedList
 
 def string_to_data(data_string):
-    pass
+
+    list = []
+
+    for i in data_string:
+        if i.isdigit():
+            list.append(int(i))
+        else:
+            if i == "a":
+                list.append(10)
+            elif i == "b":
+                list.append(11)
+            elif i == "c":
+                list.append(12)
+            elif i == "d":
+                list.append(13)
+            elif i == "e":
+                list.append(14)
+            elif i == "f":
+                list.append(15)
+
+    return list
 
 def to_rle_string(data_string):
     pass
