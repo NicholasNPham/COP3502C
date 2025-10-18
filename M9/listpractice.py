@@ -39,3 +39,66 @@ it is a one line for loop with a if condition printing in a list resulting in [2
 print(result)
 
 ### List Programming Questions
+
+def temperature():
+
+    temps = []
+    while len(temps) < 7:
+        temps.append(input("Temperatures: "))
+
+    average = 0
+    for temp in temps:
+        average += int(temp)
+    average /= len(temps)
+
+    print(f"Average Temperature: {average:.2f}°C")
+    print(f"Highest Temperature: {max(temps)}")
+    print(f"Lowest Temperature: {min(temps)}")
+
+    if average < 15:
+        print("It's quite cold. Consider indoor activities.")
+    elif 15 < average < 25:
+        print("Perfect weather for outdoor activities like hiking.")
+    else:
+        print( "It's warm. A good time for swimming or beach visits.")
+
+# temperature()
+
+# Question 2:
+def find_mountains(mountain_list, min_height):
+
+    acceptable_heights = []
+
+    for mountain_height in mountain_list:
+        if mountain_height >= min_height:
+            acceptable_heights.append(mountain_height)
+
+    print(acceptable_heights)
+
+# find_mountains([25, 50, 10, 12, 23, 7, 27], 23)
+# find_mountains([1, 4, 6, 7], 12)
+# find_mountains([10, 22, 9], 20)
+
+# Question 3:
+def remove_four(numbers):
+
+    string_numbers = []
+    for number in numbers:
+        string_numbers.append(str(number))
+
+    result = []
+
+    for i in range(len(string_numbers)):
+        if string_numbers[i] == 4:
+            result.append("replaced")
+        elif len(string_numbers[i]) > 1 and "4" in string_numbers[i]:
+            result.append("replaced")
+        else:
+            result.append(numbers[i])
+
+
+    return result
+
+print(remove_four([1,2,45,54,99]))
+print(remove_four([5,34,44,67,45,87]))
+print(remove_four([94]))
