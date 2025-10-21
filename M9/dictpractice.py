@@ -120,11 +120,26 @@ def find_unique(nums):
 
     print(unique_numbers)
 
-nums = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-find_unique(nums)
+# nums = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# find_unique(nums)
+#
+# nums = [[1, 2, 3], [2, 3, 4], [3, 4, 5]]
+# find_unique(nums)
+#
+# nums = [[10, 20], [30, 40, 50], [30, 40, 50, 60], [100]]
+# find_unique(nums)
 
-nums = [[1, 2, 3], [2, 3, 4], [3, 4, 5]]
-find_unique(nums)
+# Question 5
+def update_contact(contacts, names, numbers):
+    contacts[names] = numbers
 
-nums = [[10, 20], [30, 40, 50], [30, 40, 50, 60], [100]]
-find_unique(nums)
+    return contacts
+
+
+# contacts = { "Alice": "123-456-7890", "Bob": "987-654-3210"}
+# contacts = update_contact(contacts, "Alice", "111-222-333")
+# print(contacts)
+#
+# contacts = update_contact(contacts, "Charlie", "555-666-7777")
+# print(contacts)
+
