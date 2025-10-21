@@ -175,6 +175,7 @@ def main():
         option = int(input("Select a Menu Option: "))
         if option == 0:
             break
+
         elif option == 1:
             filename = input("Enter name of file to load: ")
             image_data = console_gfx.load_file(filename)
@@ -185,6 +186,9 @@ def main():
         elif option == 3:
             input_data = input("Enter an RLE string to be decoded: ")
             image_data = decode_rle(string_to_rle(input_data))
+            res = to_hex_string(encode_rle(image_data))
+            print(f"RLE hex values: {res}")
+
         elif option == 4:
             input_data = input("Enter the hex string holding RLE data: ")
             readableInputData = ""
@@ -195,10 +199,13 @@ def main():
 
             image_data = decode_rle(string_to_rle(readableInputData[:-1]))
 
-
-
         elif option == 6:
             console_gfx.display_image(image_data)
+
+        elif option == 8:
+            if image_data is not None:
+                res = to_hex_string(encode_rle(image_data))
+                print(f"RLE hex values: {res}")
 
 if __name__ == "__main__":
     main()
