@@ -95,13 +95,36 @@ def member_attendance(event_attendance):
 
     return event_attendance_map
 
+# event_attendance = ["Jack : GBM 1", "John : GBM 1", "Jill : GBM 1", "Jack : GBM 2", "John : GBM 2", "Julie : GBM 2"]
+# print(member_attendance(event_attendance))
+#
+# event_attendance = ["Jack : GBM 1", "John : GBM 1", "Jill : GBM 1", "Jack : GBM 2", "John : GBM 2", "Julie : GBM 2", "Jack : GBM 3", "Julie : GBM 3", "Julian : GBM 3"]
+# print(member_attendance(event_attendance))
+#
+# event_attendance = ["Jack : GBM 1", "John : GBM 1", "Jill : GBM 1", "Jack : GBM 2", "John : GBM 2", "Julie : GBM 2", "Jack : GBM 3", "Julie : GBM 3", "Julian : GBM 3", "Jack : Pool Party", "John : Pool Party", "Julie : Pool Party"]
+# print(member_attendance(event_attendance))
 
-event_attendance = ["Jack : GBM 1", "John : GBM 1", "Jill : GBM 1", "Jack : GBM 2", "John : GBM 2", "Julie : GBM 2"]
-print(member_attendance(event_attendance))
+# Question 4
+def find_unique(nums):
 
-event_attendance = ["Jack : GBM 1", "John : GBM 1", "Jill : GBM 1", "Jack : GBM 2", "John : GBM 2", "Julie : GBM 2", "Jack : GBM 3", "Julie : GBM 3", "Julian : GBM 3"]
-print(member_attendance(event_attendance))
+    numbers_dict = {}
+    unique_numbers = set()
 
-event_attendance = ["Jack : GBM 1", "John : GBM 1", "Jill : GBM 1", "Jack : GBM 2", "John : GBM 2", "Julie : GBM 2", "Jack : GBM 3", "Julie : GBM 3", "Julian : GBM 3", "Jack : Pool Party", "John : Pool Party", "Julie : Pool Party"]
-print(member_attendance(event_attendance))
+    for i in range(len(nums)):
+        for j in nums[i]:
+            numbers_dict[j] = numbers_dict.get(j, 0) + 1
 
+    for key, value in numbers_dict.items():
+        if value < 2:
+            unique_numbers.add(key)
+
+    print(unique_numbers)
+
+nums = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+find_unique(nums)
+
+nums = [[1, 2, 3], [2, 3, 4], [3, 4, 5]]
+find_unique(nums)
+
+nums = [[10, 20], [30, 40, 50], [30, 40, 50, 60], [100]]
+find_unique(nums)
