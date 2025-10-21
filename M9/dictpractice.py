@@ -143,3 +143,15 @@ def update_contact(contacts, names, numbers):
 # contacts = update_contact(contacts, "Charlie", "555-666-7777")
 # print(contacts)
 
+# Question 6
+
+def merge_dicts(dict1, dict2):
+    dict1.update(dict2)
+
+    print(dict1)
+
+# merge_dicts({"a": 1, "b": 2}, {"b": 3, "c": 4})
+#
+# merge_dicts({"apple": "green"}, {"apple": "red", "banana": "yellow"})
+#
+# merge_dicts({"name": "John"}, {"age": 30})
