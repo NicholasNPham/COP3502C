@@ -20,8 +20,6 @@ Constructors
 Constructor Default Parameters
 - Constructor Parameters can have default values using the name=value syntax
 
-test push
-
 """
 
 class Person: # This allows the class to be made
