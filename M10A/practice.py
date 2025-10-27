@@ -101,3 +101,93 @@ class Car(Vehicle):
 car1 = Car("Toyota", 180, "Petrol")
 # print(car1.get_car_info())
 
+# Programming Questions
+# Programming Question 1:
+
+class Airplane:
+    def __init__(self, model, capacity):
+        self.model = model
+        self.capacity = capacity
+
+class AirportLog:
+    def __init__(self):
+        self.logbook = {}
+
+    def add_airplane(self, time, model, capacity):
+        plane = Airplane(model, capacity)
+        if time not in self.logbook:
+            self.logbook[time] = []
+        self.logbook[time].append(plane)
+
+    def print_airplanes_at_time(self, time):
+        for airplane in self.logbook[time]:
+            print(airplane.model, end= " ")
+
+port = AirportLog()
+port.add_airplane(1, "delta", 40)
+port.add_airplane(1, "disney", 100)
+# port.print_airplanes_at_time(1)
+
+# Programming Question 2
+class Vehicle:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+
+    def display_info(self):
+        print(f"Make: {self.make}\n\nModel: {self.model}\n\nYear: {self.year}")
+
+class Car(Vehicle):
+    def __init__(self, make, model, year, mpg):
+        super().__init__(make, model, year)
+        self.mpg = mpg
+
+    def display_info(self):
+        super().display_info()
+        print(f"\nMiles Per Gallon: {self.mpg}")
+
+
+new_vehicle = Vehicle("Toyota", "Camry", 2010)
+# new_vehicle.display_info()
+new_car = Car("Toyota", "Rav4", 2015, 26)
+# new_car.display_info()
+
+# Programming Question 3:
+class Book:
+
+    id_counter = 0
+
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+        Book.id_counter += 1
+        self.id = Book.id_counter
+
+    def get_info(self):
+        return f"ID: {self.id}, Title: {self.title}, Author: {self.author}"
+
+    @classmethod
+    def get_num_books(self):
+        return Book.id_counter
+
+class FictionBook(Book):
+    def __init__(self, title, author):
+        super().__init__(title, author)
+
+class NonFictionBook(Book):
+    def __init__(self, title, author):
+        super().__init__(title, author)
+
+book1 = Book("The Great Gatsby", "F. Scott Fitzgerald")
+print(book1.get_info())
+book2 = Book("The Hunger Games", "Suzanne Collins")
+print(book2.get_info())
+print("Number of Books:", Book.get_num_books())
+
+fiction_book1 = FictionBook("1984", "George Orwell", "Dystopian")
+print(fiction_book1.get_info())
+# print("Is Classic:", Book.is_classic(fiction_book1.title))
+
+
+
