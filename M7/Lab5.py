@@ -30,6 +30,7 @@ def hex_string_decode(hex): #0xB5AD34
             i -= 1
     return sum
 
+
 def binary_string_decode(binary):
     if binary[1] == 'b' or binary[1] == 'B':
         binary = binary[2:]

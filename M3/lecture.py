@@ -1,11 +1,7 @@
-# Program to calculate and display the factorial number using a for loop
-
-num = int(input("Enter a positive number: "))
-factorial_num = num
-
-res = 1
-
-for i in range(1, num+1):
-    res *= i
-
-print(f'The factorial of {factorial_num} is {res}')
+lower = int(input("Lower Limit: "))
+upper = int(input("Upper Limit: "))
+for a in range(lower, upper + 1):
+    for b in range(a, upper + 1):
+        for c in range(b, upper + 1):
+            if a ** 2 + b ** 2 == c ** 2:
+                print(a, b, c)
