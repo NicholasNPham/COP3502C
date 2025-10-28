@@ -205,6 +205,67 @@ class NonFictionBook(Book):
 # print(nonfiction_book1.get_info())
 # print("Is Classic:", Book.is_classic(nonfiction_book1.title))
 
+# Programming Question 4
+
+class Student:
+    def __init__(self, name, savings, college):
+        self.name = name
+        self.savings = savings
+        self.college = college
+
+    def pay_tuition(self):
+        self.savings = self.savings - 20000
+        if self.savings >= 0:
+            print("You have successfully paid your tuition!")
+        else:
+            print("You do not have enough savings to pay your tuition.")
+
+    def print(self):
+        print("Student Name:", self.name)
+        print("Student Savings:", self.savings)
+        print("Student College:", self.college)
+
+# student = Student("Tonya", 20000, "UF")
+# student.pay_tuition()
+# student.pay_tuition()
+# student.print()
+#
+# student = Student("John", 240000, "FSU")
+# student.pay_tuition()
+# student.pay_tuition()
+# student.print()
+
+# Programming Question 5:
+
+class ToDoList:
+    def __init__(self):
+        self.to_do_list = {}
+
+    def add_task(self, task):
+        self.task = task
+        self.to_do_list[self.task] = False
+
+    def complete_task(self, task):
+        if task in self.to_do_list:
+            self.to_do_list[task] = True
+        else:
+            print(f"Task '{task} not found")
+
+    def display_tasks(self):
+        print("Task:")
+        for key, value in self.to_do_list.items():
+            if value == False:
+                print(f"{key}: {'Not Completed'}")
+            else:
+                print(f"{key}: {'Completed'}")
+
+# my_todo_list = ToDoList()
+# my_todo_list.add_task("Buy groceries")
+# my_todo_list.add_task("Wash the car")
+# my_todo_list.display_tasks()
+# my_todo_list.complete_task("Buy groceries")
+# my_todo_list.display_tasks()
+
 
 
 
