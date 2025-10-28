@@ -266,6 +266,38 @@ class ToDoList:
 # my_todo_list.complete_task("Buy groceries")
 # my_todo_list.display_tasks()
 
+# Programming Question 6
+class Recipe:
+    def __init__(self, name, ingredients, instructions):
+        self.name = name
+        self.ingredients = ingredients
+        self.instructions = instructions
+
+class RecipeBook:
+    def __init__(self):
+        self.recipe_list = []
+
+    def add_recipe(self, name, ingredients, instructions):
+        recipe = Recipe(name, ingredients, instructions)
+        self.recipe_list.append(recipe)
+
+    def find_recipe(self, name):
+        for recipe in self.recipe_list:
+            if recipe.name == name:
+                print("Ingredients:", ", ".join(recipe.ingredients))
+                print("Instructions:", recipe.instructions)
+                return
+            print("Recipe not found")
+
+# recipe_book = RecipeBook()
+# recipe_book.add_recipe("Pancakes", ["flour", "eggs", "milk"], "Mix all ingredients and fry.")
+# recipe_book.find_recipe("Pancakes")
+#
+# recipe_book = RecipeBook()
+# recipe_book.add_recipe("Pancakes", ["flour", "eggs", "milk"], "Mix all ingredients and fry.")
+# recipe_book.find_recipe("Waffles")
+
+
 
 
 
