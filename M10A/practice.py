@@ -167,27 +167,44 @@ class Book:
     def get_info(self):
         return f"ID: {self.id}, Title: {self.title}, Author: {self.author}"
 
+    @staticmethod
+    def is_classic(title):
+        return "a" in title.lower()
+
     @classmethod
     def get_num_books(self):
         return Book.id_counter
 
 class FictionBook(Book):
-    def __init__(self, title, author):
+    def __init__(self, title, author, genre):
         super().__init__(title, author)
+        self.genre = genre
+
+    def get_info(self):
+        return f"{super().get_info()}, Genre: {self.genre}"
 
 class NonFictionBook(Book):
-    def __init__(self, title, author):
+    def __init__(self, title, author, genre):
         super().__init__(title, author)
+        self.genre = genre
 
-book1 = Book("The Great Gatsby", "F. Scott Fitzgerald")
-print(book1.get_info())
-book2 = Book("The Hunger Games", "Suzanne Collins")
-print(book2.get_info())
-print("Number of Books:", Book.get_num_books())
+    def get_info(self):
+        return f"{super().get_info()}, Genre: {self.genre}"
 
-fiction_book1 = FictionBook("1984", "George Orwell", "Dystopian")
-print(fiction_book1.get_info())
+# book1 = Book("The Great Gatsby", "F. Scott Fitzgerald")
+# print(book1.get_info())
+# book2 = Book("The Hunger Games", "Suzanne Collins")
+# print(book2.get_info())
+# print("Number of Books:", Book.get_num_books())
+#
+# fiction_book1 = FictionBook("1984", "George Orwell", "Dystopian")
+# print(fiction_book1.get_info())
 # print("Is Classic:", Book.is_classic(fiction_book1.title))
+#
+# nonfiction_book1 = NonFictionBook("A Brief History of Time", "Stephen Hawking", "Science")
+# print(nonfiction_book1.get_info())
+# print("Is Classic:", Book.is_classic(nonfiction_book1.title))
+
 
 
 
