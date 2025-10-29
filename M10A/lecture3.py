@@ -34,6 +34,11 @@ When to use Instance Vs. Class Methods
     - OPERATIONS ON THEW CLASS: When an operation pertains to the class as a whole, not any specific instance.
 
 - THE KEY IS TO CONSIDER WHETHER THE METHOD OPERATES ON THE SPECIFIC STATE OF AN INDIVIDUAL OBJECT (INSTANCE METHOD) OR DEALS WITH THE CLASS AS A CONCEPT (CLASS CONCEPT)
+
+Decorators
+- @classmethod: Pass the class instead of the instance
+- @staticmethod: dont pass anything automatically
+
 """
 
 # Output Prediction question 1
@@ -205,7 +210,7 @@ class Student:
         # utility function that doesn't need access to class or instance state
         return grade >= 60
 
-print(Student.is_passing_grade(75)) # Output: True
+# print(Student.is_passing_grade(75)) # Output: True
 
 # Static or Class method Example 1:
 class Example:
@@ -225,3 +230,35 @@ class Example:
     @staticmethod
     def utility(x, y): # Static Method
         return x + y
+
+# Practice Question
+class GradeBook:
+
+    def __init__(self, grade):
+        self.grade = grade
+
+    def find_median(self):
+        sorted_list = sorted(self.grade)
+        length = len(sorted_list)
+
+        if length % 2 == 1:
+            median = sorted_list[length // 2]
+        else:
+            lower_middle = sorted_list[length // 2 - 1]
+            upper_middle = sorted_list[length // 2]
+            median = (lower_middle + upper_middle) / 2
+
+        return median
+
+    def averages(self):
+        mean = 0
+        for grade in self.grade:
+            mean += grade
+        mean /= len(self.grade)
+        median = self.find_median()
+
+        return (mean, median)
+
+gradebook = GradeBook([85, 90, 78, 92, 88]) # sorted [78, 85, 88, 90, 92]
+mean, median = gradebook.averages()
+print(f"Mean: {mean}, Median: {median}")
