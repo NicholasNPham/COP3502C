@@ -1,3 +1,40 @@
+"""
+Instance Methods
+- Automatically Receive the instance (self) as first argument
+- Can access/modify both instance and class attributes
+- Most common method type
+- Called on instance of the class
+
+- BOUND TO AN INSTANCE: These methods operate on specific instances (objects) of the class.
+- ACCESS: They can access both instance attributes (via self in Python) and class attributes.
+- FIRST PARAMETER: In Python, They automatically receive the instance as the first parameter (conventionally named self).
+- USAGE: Called on an object of the class (object.method())
+
+Class Method
+- Decorated with @classmethod
+- Received the class (cls) as first argument
+- can access.modify class state but not instance state
+- often used for alternative constructors or factory methods
+
+Static Methods
+- NO BINDING: Not bound to either the class or instance
+- NO AUTOMATIC PARAMETERS: Does not automatically receive self or cls.
+- ACCESS: Cannot directly access either instance or class attributes
+- DECLARATION: In Python, created using the @staticmethod decorator.
+- PURPOSE: For utility functions related to the class but not dependent on class or instance state
+
+When to use Instance Vs. Class Methods
+- Instance Methods:
+    - WORKING WITH INSTANCE-SPECIFIC DATA: when you need to access or modify attributes that belong to a specific object.
+    - REPRESENTING OBJECT BEHAVIOR: when the method represents something this object 'does' or a state it can be in.
+    - OBJECT-SPECIFIC OPERATIONS: When the operation makes sense only in the context of a specific instance.
+- Class Methods:
+    - ALTERNATIVE CONSTRUCTORS: To provide different ways to create objects beyond the standard __init__.
+    - WORKING WITH CLASS-LEVEL DATA: When tracking or modifying information about the class itself., like counters or configurations that apply to all instances.
+    - OPERATIONS ON THEW CLASS: When an operation pertains to the class as a whole, not any specific instance.
+
+- THE KEY IS TO CONSIDER WHETHER THE METHOD OPERATES ON THE SPECIFIC STATE OF AN INDIVIDUAL OBJECT (INSTANCE METHOD) OR DEALS WITH THE CLASS AS A CONCEPT (CLASS CONCEPT)
+"""
 
 # Output Prediction question 1
 class Calculator:
@@ -147,3 +184,44 @@ pikabu = Monster(2, "Pikabu")
 # print(pikabu.name) # Pikabu
 #
 # print(hasattr(pikabu, "increase_level")) # True
+
+# Class Method Example 1:
+class Student:
+    school_name = "Python High"
+
+    @classmethod
+    def change_school(cls, new_name):
+        # can modify class state, but not the instance state
+        cls.school_name = new_name
+
+Student.change_school("Python Academy")
+# print(Student.school_name) # Output: Python Academy
+
+# Static Methods Example 1:
+class Student:
+
+    @staticmethod
+    def is_passing_grade(grade):
+        # utility function that doesn't need access to class or instance state
+        return grade >= 60
+
+print(Student.is_passing_grade(75)) # Output: True
+
+# Static or Class method Example 1:
+class Example:
+    count = 0
+
+    def __init__(self, value):
+        self.value = value
+        Example.count += 1
+
+    def get_value(self): # Instance Method
+        return self.value
+
+    @classmethod
+    def get_count(cls): # Class method
+        return cls.count
+
+    @staticmethod
+    def utility(x, y): # Static Method
+        return x + y
