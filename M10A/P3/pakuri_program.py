@@ -1,38 +1,47 @@
 from pakuri import *
 from pakudex import *
 
+def menu():
+    print("Pakudex Main Menu")
+    print("-----------------")
+    print("1. List Pakuri")
+    print("2. Show Pakuri")
+    print("3. Add Pakuri")
+    print("4. Evolve Pakuri")
+    print("5. Sort Pakuri")
+    print("6. Exit")
+
 def main():
+    print("Welcome to Pakudex: Tracker Extraordinaire!")
 
-    my_store = Pakudex(5)
 
-    print(my_store.add_pakuri("Pikachu"))
-    print(my_store.add_pakuri("Bulbasaur"))
-    print(my_store.add_pakuri("Bulbasaur"))
-    print(my_store.add_pakuri("Psygoose"))
-    print(my_store.add_pakuri("AAAA"))
-    print(my_store.add_pakuri("BBBB"))
-    print(my_store.add_pakuri("CCCC"))
+    while True:
+        max_cap = input("Enter max capacity of the Pakudex: ")
 
-    # my_store.my_pakudex.append(Pakuri('Pikachu'))
-    # my_store.my_pakudex.append(Pakuri('Bulbasaur'))
+        try:
+            max_cap = int(max_cap)
+            if max_cap <= 0:
+                print("Please enter a valid size.")
+                break
+            print(f"The Pakudex can hold {max_cap} species of Pakuri.\n")
+            storage = Pakudex(max_cap)
+            menu()
+            choice = input("\nWhat would you like to do? ")
 
-    for each_pakuri in my_store.my_pakudex:
-        print(each_pakuri.get_species(), " ", each_pakuri.get_attack())
+            if choice == "1":
+                if len(storage.my_pakudex) == 0:
+                    print("No Pakuri in Pakudex yet!")
+                else:
+                    print("Pakuri in Pakudex: ")
+                    for i in range(len(storage.my_pakudex)):
+                        print(f"{i}. {storage.my_pakudex[i].get_species()}")
 
-    # obj = Pakuri("Pikachu")
-    # # print(obj.get_species())
-    # # print(obj.get_attack())
-    # # print(obj.get_defense())
-    # # print(obj.get_speed())
-    # obj2 = Pakuri("Bulbasaur")
-    # obj3 = Pakuri("Psygoose")
-    #
-    # pakudex = [obj, obj2, obj3]
-    #
-    # pakudex.sort()
-    #
-    # for each_pakuri in pakudex:
-    #     print(each_pakuri.get_species(), " ", each_pakuri.get_attack())
+            if choice == "2":
+
+
+
+        except ValueError:
+            print("Please enter a valid size.")
 
 if __name__ == "__main__":
     main()
