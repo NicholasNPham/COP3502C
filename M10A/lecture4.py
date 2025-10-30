@@ -29,6 +29,10 @@ Looking up Attributes Names on Classes
     - Class's namespace
     - Namespaces of base classes
 
+Composition
+- Describes a class that references one or more 0objects of other classes in instances variables. This allows us to model a has-a relationship
+
+
 """
 
 # Derived Classes
@@ -125,7 +129,7 @@ class Child(Parent):
         self.b = b
 
 c = Child(5, 7)
-print(c.b, c.x, c.y) # print 7, 5, 3
+# print(c.b, c.x, c.y) # print 7, 5, 3
 
 # Looking up Attributes Names on Classes
 class Account:
@@ -173,3 +177,40 @@ ch = CheckingAccount(300)
 
 ch.deposit(20) # This is found in Checking account because it is defined there
 sh.deposit(20) # found in Account because SavingsAccount does not define it there
+
+# Composition Example:
+
+class Account:
+    interest = 0.01
+    def __init__(self, holder, balance=0):
+        self.holder = holder
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance = self.balance + amount
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            return ("insufficient balance")
+        self.balance = self.balance - amount
+
+class CheckingAccount(Account):
+    interest = 0.02
+    withdraw_fee = 1
+
+    def withdraw(self, amount):
+        return Account.withdraw(self, amount + self.withdraw_fee)
+
+class Bank:
+    def __init__(self):
+        self.accounts = []
+
+    def open_account(self, holder, amount, kind=Account):
+        account = kind(holder, amount)
+        self.accounts.append(account)
+        return account
+
+    def pay_interest(self):
+        for acc in self.accounts:
+            acc.deposit(acc.balance * acc.interest)
+
