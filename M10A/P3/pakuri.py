@@ -18,10 +18,12 @@ class Pakuri:
         return self.speed
 
     def set_attack(self, new_attack):
-        pass
+        self.attack = new_attack
 
     def evolve(self):
-        pass
+        self.attack = self.attack * 2
+        self.defense = self.defense * 4
+        self.speed = self.speed * 3
 
     def __lt__(self, other):
-        return self.species <= other.species
+        return self.species < other.species
