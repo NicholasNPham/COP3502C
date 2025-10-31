@@ -32,15 +32,24 @@ def main():
             choice = input("\nWhat would you like to do? ")
 
             if choice == "1":
-                if len(storage.my_pakudex) == 0:
+                if storage.get_size() == 0:
                     print("No Pakuri in Pakudex yet!")
                 else:
+                    names = storage.get_species_array()
                     print("Pakuri in Pakudex: ")
-                    for i in range(len(storage.my_pakudex)):
-                        print(f"{i}. {storage.my_pakudex[i].get_species()}")
+                    for i in range(len(names)):
+                        print(f"{i+1}. {names[i]}")
 
             if choice == "2":
-                pass
+                species_name = input("Enter the name of the species to display: ")
+                stats = storage.get_stats(species_name)
+                if stats == None:
+                    print("Error: No such Pakuri!")
+                else:
+                    print(f"Species: {species_name}")
+                    print(f"Attack: {stats[0]}")
+                    print(f"Defense: {stats[1]}")
+                    print(f"Speed: {stats[2]}")
 
             if choice == "6":
                 break
