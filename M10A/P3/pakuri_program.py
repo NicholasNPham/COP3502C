@@ -14,17 +14,20 @@ def menu():
 def main():
     print("Welcome to Pakudex: Tracker Extraordinaire!")
 
-
     while True:
         max_cap = input("Enter max capacity of the Pakudex: ")
-
         try:
             max_cap = int(max_cap)
             if max_cap <= 0:
                 print("Please enter a valid size.")
-                break
+                continue
             print(f"The Pakudex can hold {max_cap} species of Pakuri.\n")
             storage = Pakudex(max_cap)
+            break
+        except ValueError:
+            print("Please enter a valid size.")
+
+    while True:
             menu()
             choice = input("\nWhat would you like to do? ")
 
@@ -37,11 +40,10 @@ def main():
                         print(f"{i}. {storage.my_pakudex[i].get_species()}")
 
             if choice == "2":
+                pass
 
-
-
-        except ValueError:
-            print("Please enter a valid size.")
+            if choice == "6":
+                break
 
 if __name__ == "__main__":
     main()
