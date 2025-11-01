@@ -21,13 +21,14 @@ def main():
             if max_cap <= 0:
                 print("Please enter a valid size.")
                 continue
-            print(f"The Pakudex can hold {max_cap} species of Pakuri.\n")
+            print(f"The Pakudex can hold {max_cap} species of Pakuri.")
             storage = Pakudex(max_cap)
             break
         except ValueError:
             print("Please enter a valid size.")
 
     while True:
+            print()
             menu()
             choice = input("\nWhat would you like to do? ")
 
@@ -36,11 +37,11 @@ def main():
                     print("No Pakuri in Pakudex yet!")
                 else:
                     names = storage.get_species_array()
-                    print("Pakuri in Pakudex: ")
+                    print("Pakuri In Pakudex: ")
                     for i in range(len(names)):
                         print(f"{i+1}. {names[i]}")
 
-            if choice == "2":
+            elif choice == "2":
                 species_name = input("Enter the name of the species to display: ")
                 stats = storage.get_stats(species_name)
                 if stats == None:
@@ -51,8 +52,36 @@ def main():
                     print(f"Defense: {stats[1]}")
                     print(f"Speed: {stats[2]}")
 
-            if choice == "6":
+            elif choice == "3":
+
+                if storage.get_size() == storage.get_capacity():
+                    print("Error: Pakudex is full!")
+                else:
+                    species_name = input("Enter the name of the species to add: ")
+                    add_checker = storage.add_pakuri(species_name)
+                    if add_checker == False:
+                        print("Error: Pakudex already contains this species!")
+                    else:
+                        print(f"Pakuri species {species_name} successfully added!")
+
+            elif choice == "4":
+                species_name = input("Enter the name of the species to evolve: ")
+                evolve_checker = storage.evolve_species(species_name)
+                if evolve_checker == False:
+                    print("Error: No such Pakuri!")
+                else:
+                    print(f"{species_name} has evolved!")
+
+            elif choice == "5":
+                storage.sort_pakuri()
+                print("Pakuri have been sorted!")
+
+            elif choice == "6":
+                print("Thanks for using Pakudex! Bye!")
                 break
+
+            else:
+                print("Unrecognized menu selection!")
 
 if __name__ == "__main__":
     main()
