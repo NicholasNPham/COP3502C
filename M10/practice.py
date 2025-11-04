@@ -167,27 +167,137 @@ class Book:
     def get_info(self):
         return f"ID: {self.id}, Title: {self.title}, Author: {self.author}"
 
+    @staticmethod
+    def is_classic(title):
+        return "a" in title.lower()
+
     @classmethod
     def get_num_books(self):
         return Book.id_counter
 
 class FictionBook(Book):
-    def __init__(self, title, author):
+    def __init__(self, title, author, genre):
         super().__init__(title, author)
+        self.genre = genre
+
+    def get_info(self):
+        return f"{super().get_info()}, Genre: {self.genre}"
 
 class NonFictionBook(Book):
-    def __init__(self, title, author):
+    def __init__(self, title, author, genre):
         super().__init__(title, author)
+        self.genre = genre
 
-book1 = Book("The Great Gatsby", "F. Scott Fitzgerald")
-print(book1.get_info())
-book2 = Book("The Hunger Games", "Suzanne Collins")
-print(book2.get_info())
-print("Number of Books:", Book.get_num_books())
+    def get_info(self):
+        return f"{super().get_info()}, Genre: {self.genre}"
 
-fiction_book1 = FictionBook("1984", "George Orwell", "Dystopian")
-print(fiction_book1.get_info())
+# book1 = Book("The Great Gatsby", "F. Scott Fitzgerald")
+# print(book1.get_info())
+# book2 = Book("The Hunger Games", "Suzanne Collins")
+# print(book2.get_info())
+# print("Number of Books:", Book.get_num_books())
+#
+# fiction_book1 = FictionBook("1984", "George Orwell", "Dystopian")
+# print(fiction_book1.get_info())
 # print("Is Classic:", Book.is_classic(fiction_book1.title))
+#
+# nonfiction_book1 = NonFictionBook("A Brief History of Time", "Stephen Hawking", "Science")
+# print(nonfiction_book1.get_info())
+# print("Is Classic:", Book.is_classic(nonfiction_book1.title))
+
+# Programming Question 4
+
+class Student:
+    def __init__(self, name, savings, college):
+        self.name = name
+        self.savings = savings
+        self.college = college
+
+    def pay_tuition(self):
+        self.savings = self.savings - 20000
+        if self.savings >= 0:
+            print("You have successfully paid your tuition!")
+        else:
+            print("You do not have enough savings to pay your tuition.")
+
+    def print(self):
+        print("Student Name:", self.name)
+        print("Student Savings:", self.savings)
+        print("Student College:", self.college)
+
+# student = Student("Tonya", 20000, "UF")
+# student.pay_tuition()
+# student.pay_tuition()
+# student.print()
+#
+# student = Student("John", 240000, "FSU")
+# student.pay_tuition()
+# student.pay_tuition()
+# student.print()
+
+# Programming Question 5:
+
+class ToDoList:
+    def __init__(self):
+        self.to_do_list = {}
+
+    def add_task(self, task):
+        self.task = task
+        self.to_do_list[self.task] = False
+
+    def complete_task(self, task):
+        if task in self.to_do_list:
+            self.to_do_list[task] = True
+        else:
+            print(f"Task '{task} not found")
+
+    def display_tasks(self):
+        print("Task:")
+        for key, value in self.to_do_list.items():
+            if value == False:
+                print(f"{key}: {'Not Completed'}")
+            else:
+                print(f"{key}: {'Completed'}")
+
+# my_todo_list = ToDoList()
+# my_todo_list.add_task("Buy groceries")
+# my_todo_list.add_task("Wash the car")
+# my_todo_list.display_tasks()
+# my_todo_list.complete_task("Buy groceries")
+# my_todo_list.display_tasks()
+
+# Programming Question 6
+class Recipe:
+    def __init__(self, name, ingredients, instructions):
+        self.name = name
+        self.ingredients = ingredients
+        self.instructions = instructions
+
+class RecipeBook:
+    def __init__(self):
+        self.recipe_list = []
+
+    def add_recipe(self, name, ingredients, instructions):
+        recipe = Recipe(name, ingredients, instructions)
+        self.recipe_list.append(recipe)
+
+    def find_recipe(self, name):
+        for recipe in self.recipe_list:
+            if recipe.name == name:
+                print("Ingredients:", ", ".join(recipe.ingredients))
+                print("Instructions:", recipe.instructions)
+                return
+            print("Recipe not found")
+
+# recipe_book = RecipeBook()
+# recipe_book.add_recipe("Pancakes", ["flour", "eggs", "milk"], "Mix all ingredients and fry.")
+# recipe_book.find_recipe("Pancakes")
+#
+# recipe_book = RecipeBook()
+# recipe_book.add_recipe("Pancakes", ["flour", "eggs", "milk"], "Mix all ingredients and fry.")
+# recipe_book.find_recipe("Waffles")
+
+
 
 
 
