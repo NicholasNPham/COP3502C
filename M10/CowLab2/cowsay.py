@@ -33,8 +33,15 @@ def main():
             print(f"Could not find {cow_name} cow!")
             return
 
+
         print(message)
         print(chosen_cow.get_image(), end="")
+
+        if len(sys.argv) >= 4 and sys.argv[2] == "ice-dragon":
+            print("\nThis dragon cannot breathe fire.")
+
+        if len(sys.argv) >= 4 and sys.argv[2] == "dragon":
+            print("\nThis dragon can breathe fire.")
         return
 
     message = " ".join(sys.argv[1:])
