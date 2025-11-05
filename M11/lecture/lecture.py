@@ -28,6 +28,35 @@ Raising Exceptions
 
 Unit Test
 - Unit testing is a software testing method by which each individual units of code are put under various tests to determine whether they are fit for use.
+
+Version Control: Why?
+- Because programmers are awesome brilliant and Human and must work together.
+- We must plan to fail. Version control (revision control, source control) protects us from our own stupidity and faulty nature by storing changes.
+
+Version Control Basics:
+- Version Control
+    - Is based on commits
+    - can have branches
+    - support merges
+
+Git: Distributed Version Control
+- Git is a distributed version control system.
+    - Everyone has a copy of the repository
+    - May or may not have central repository
+    - Commits are local until they are pushed
+    - "Commit early and often" (low cost)
+
+Distributed VCS: Clone
+- A Clone operation makes a copy of a repository locally.
+Distributed VCS: Commit
+- Performing a commit creates a changeset from one version to another.
+Distributed VCS: Push
+- A push operation pushes any changes up to a remote repository
+Distributed VCS: Pull
+- A pull operation pulls down any changes made to the remote repository
+
+
+
 """
 # Assertion Example
 a = 12
