@@ -94,4 +94,57 @@ digital_edition = Ebook('1984', 'George Orwell', 2)
 print(digital_edition.get_info())
 # Ebook: 1984 by George Orwell, Size 2MB
 """
+# MCQ 6
+"""
+class Vehicle:
+    def __init__(self, name, speed):
+        self.name = name
+        self.speed = speed
 
+
+    def get_speed(self):
+        return f"{self.name} speed: {self.speed}km/h"
+
+
+class Car(Vehicle):
+    def __init__(self, name, speed, fuel_type):
+        super().__init__(name, speed)
+        self.fuel_type = fuel_type
+
+
+    def get_car_info(self):
+        return f"{self.get_speed()}, Fuel type: {self.fuel_type}"
+
+
+car1 = Car("Toyota", 180, "Petrol")
+print(car1.get_car_info())
+"""
+
+# FRQ 1
+
+class Airplane:
+    def __init__(self, model, capacity):
+        self.model = model
+        self.capacity = capacity
+
+class AirportLog:
+
+    def __init__(self):
+        self.airplane_log = {}
+
+    def add_airplane(self, time, model, capacity):
+        plane = Airplane(model, capacity)
+        if time not in self.airplane_log:
+            self.airplane_log[time] = []
+        self.airplane_log[time].append(plane)
+
+    def print_airplanes_at_time(self, time):
+        for airplane in self.airplane_log[time]:
+            print(airplane.model, end=" ")
+
+# Need to do this problem again need to really learn this problem
+
+port = AirportLog()
+port.add_airplane(1, "delta", 40)
+port.add_airplane(1, "disney", 100)
+port.print_airplanes_at_time(1)
