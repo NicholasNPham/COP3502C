@@ -144,7 +144,39 @@ class AirportLog:
 
 # Need to do this problem again need to really learn this problem
 
-port = AirportLog()
-port.add_airplane(1, "delta", 40)
-port.add_airplane(1, "disney", 100)
-port.print_airplanes_at_time(1)
+# port = AirportLog()
+# port.add_airplane(1, "delta", 40)
+# port.add_airplane(1, "disney", 100)
+# port.print_airplanes_at_time(1)
+
+# FRQ 2:
+
+class Vehicle:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+
+    def display_info(self):
+        print(f"Make: {self.make}")
+        print(f"Model: {self.model}")
+        print(f"Year: {self.year}")
+
+class Car(Vehicle):
+    def __init__(self, make, model, year, miles_per_gallon):
+        super().__init__(make, model, year)
+        self.miles_per_gallon = miles_per_gallon
+
+    def display_info(self):
+        print(f"Make: {self.make}")
+        print(f"Model: {self.model}")
+        print(f"Year: {self.year}")
+        print(f"Miles Per Gallon: {self.miles_per_gallon}")
+
+# new_vehicle = Vehicle("Toyota", "Camry", 2010)
+# new_vehicle.display_info()
+#
+# new_car = Car("Toyota", "Rav4", 2015, 26)
+# new_car.display_info()
+
+# FRQ 3
