@@ -180,3 +180,19 @@ class Car(Vehicle):
 # new_car.display_info()
 
 # FRQ 3
+
+class Book:
+
+    def __init__(self, title, author):
+
+    def get_info(self):
+
+    def is_classic(self):
+
+    def get_num_books(cls):
+
+class FictionBook(Book):
+
+    def __init__(self, title, author, genre):
+        super().__init__(title, author)
+        self.genre = genre 
