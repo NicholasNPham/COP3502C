@@ -74,3 +74,40 @@ for i in range(0, n):            O(n)
 The time complexity of this code snippet is O(log n) because we are multiplying by 2 each iteration,
 therefore we are doing fewer and fewer steps as n gets bigger, so it’s efficient because the time grows slowly
 """
+
+#FRQ 1
+
+def linear_search(items, key):
+    for num in items:
+        if num == key:
+            return True
+    return False
+
+# print(linear_search([1, 2, 5, 3, 10], 3))
+
+def selection_sort(items):
+    for i in range(0, len(items)):
+
+        index_min = i
+
+        for j in range(i + 1, len(items)):
+            if items[j] < items[index_min]:
+                index_min = j
+
+        items[index_min], items[i] = items[i], items[index_min]
+
+    return items
+
+# print(selection_sort([4, 1, 7, 10, 5, 2]))
+
+def bubble_sort(items):
+    for i in range(len(items)):
+        print(f"bubble sort pass {i + 1}")
+        for j in range(0, len(items) - i - 1):
+            if items[j] > items[j+1]:
+                items[j], items[j+1] = items[j+1], items[j]
+                print(items)
+
+    return items
+
+print(bubble_sort([10, 5, 15, 20, 1, 9]))
