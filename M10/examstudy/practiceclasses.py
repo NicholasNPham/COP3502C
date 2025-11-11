@@ -177,8 +177,68 @@ p1 = Player(20) # 20
 bonus = 3
 
 Player.add_bonus(p1, bonus)
-print(p1.score, bonus)
+# print(p1.score, bonus)
 
+# Output Prediction 10
+class Person:
+   def __init__(self, name, age):
+       self.name = name
+       self.age = age
+
+   def introduce(self):
+       print(f"My name is {self.name} and I'm {self.age} years old.")
+
+   def change_age(self, new_age):
+       self.age = new_age
+
+person1 = Person("Alice", 25)
+person2 = Person("Bob", 30)
+
+# person1.introduce() # My name is Alice and I'm 25 years old.
+# person2.introduce() # My name is Bob and I'm 30 years old.
+
+person1.change_age(26) # changes to 26 because of the method
+person2.age = 31 # this also changes because is changing the self.age to 31
+
+# print(person1.age) # 26
+# print(person2.age) # 31
+
+# Output Prediction Question 11
+class Stud:
+   pass
+
+class Monster:
+  def __init__(self, level=1, name="Monster"):
+      self.level = level
+      self.name = name
+
+  def __eq__(self, other):
+      print("Hi")
+      if isinstance(other, Monster):
+          return True
+      return 123
+
+m = Stud()
+n = Monster()
+# print(n == m) # Hi 123
+
+# Output Prediction 12
+class Person:
+   def __init__(self, name, age):
+       self.name = name
+       self.age = age
+
+   def __lt__(self, other):
+       if isinstance(other, Person):
+           return self.age < other.age
+       return False
+
+   def __str__(self):
+       return self.name
+
+people = [Person("Alice", 25), Person("Bob", 20), Person("Charlie", 20)]
+people.sort()
+print([str(p) for p in people]) # [Bob Charlie Alice]
 
 
 # Free Response Question 1
@@ -207,4 +267,46 @@ list_of_grades = [80, 90, 94]
 gradebook = Gradebook(list_of_grades)
 # print(gradebook.averages())
 
+# Free Response Question 2
+class BankAccount:
+    def __init__(self, account_number, account_holder_name, initial_balance):
+        self.account_number = account_number
+        self.account_holder_name = account_holder_name
+        self.initial_balance = initial_balance
+
+    def deposit(self, amount):
+        self.initial_balance += amount
+        print(f"added {amount} to account {self.account_number} balance is now {self.initial_balance}")
+
+    def withdraw(self, amount):
+        if amount > self.initial_balance:
+            print("Error not enough balance to withdraw")
+        else:
+            self.initial_balance -= amount
+            print(f"withdrawed {amount} to account {self.account_number} balance is now {self.initial_balance}")
+
+    def get_balance(self):
+        return self.initial_balance
+
+    def print_statement(self):
+        print(f"Account Number: {self.account_number}, Account name: {self.account_holder_name}, Balance: {self.initial_balance}")
+
+# Create a new bank account
+# account = BankAccount("123456789", "John Doe", 1000.0)
+
+# Deposit some money
+# account.deposit(500.0)  # Output: Deposited $500.0 into account 123456789
+
+# Try to withdraw more than the available balance
+# account.withdraw(2000.0)  # Output: Insufficient funds. Cannot withdraw $2000.0 from account 123456789
+
+# Withdraw a valid amount
+# account.withdraw(300.0)  # Output: Withdrew $300.0 from account 123456789
+
+# Get the current balance
+# current_balance = account.get_balance()
+# print(f"Current balance: ${current_balance}")  # Output: Current balance: $1200.0
+
+# Print the account statement
+# account.print_statement()
 
