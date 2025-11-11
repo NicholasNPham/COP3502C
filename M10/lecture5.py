@@ -296,7 +296,7 @@ def max_diff(vals): # O(n^2)
 
 def selection_sort(vals): # O(n^2)
 
-    for i in range(o, len(vals)): # O(n)
+    for i in range(0, len(vals)): # O(n)
 
         index_min = i # O(1)
 
