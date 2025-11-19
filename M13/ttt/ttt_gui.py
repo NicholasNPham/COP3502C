@@ -8,6 +8,8 @@ pygame.display.set_caption("Tic Tac Toe")
 
 # Initialize Fonts to Draw X and O
 chip_font = pygame.font.Font(None, CHIP_FONT)
+# Initialize Text Font
+game_over_font = pygame.font.Font(None, GAME_OVER_FONT)
 
 # Initialize a Board
 board = initialize_board()
@@ -53,9 +55,24 @@ def draw_chips():
                 chip_o_rect = chip_o_surf.get_rect(center = (cols * SQUARE_SIZE + SQUARE_SIZE / 2, row * SQUARE_SIZE + SQUARE_SIZE / 2))
                 screen.blit(chip_o_surf, chip_o_rect)
 
-screen.fill(pygame.Color(BG_COLOR))
+def draw_game_over():
+    screen.fill(BG_COLOR)
+    if winner != 0:
+        end_text = f"Player {winner} wins!"
+    else:
+        end_text = "No one win!"
+
+    end_surf = game_over_font.render(end_text, 0, LINE_COLOR)
+    end_rect = end_surf.get_rect(center = (WIDTH // 2, HEIGHT // 2 - 50))
+    screen.blit(end_surf, end_rect)
+
+    restart_text = "press r to play the game again..."
+    restart_surf = game_over_font.render(restart_text, 0, LINE_COLOR)
+    restart_rect = restart_surf.get_rect(center = (WIDTH // 2, HEIGHT // 2 + 50))
+    screen.blit(restart_surf, restart_rect)
+
+screen.fill(BG_COLOR)
 draw_grids()
-draw_chips()
 
 while True:
     # Event Loop
@@ -63,8 +80,42 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-        if event.type == pygame.MOUSEBUTTONDOWN:
+        if event.type == pygame.MOUSEBUTTONDOWN and not game_over:
             x, y = event.pos
-            print(x, y) # STOPPED at 19:25
+            row = y // SQUARE_SIZE
+            col = x // SQUARE_SIZE
+            # print(row, col)
+            # print(x, y)
+            if available_square(board, row, col):
+                mark_square(board, row, col, chip)
+                if check_if_winner(board, chip):
+                    winner = player
+                    game_over = True
+                else:
+                    if board_is_full(board):
+                        game_over = True
+                        winner = 0
+
+                # Alternate The Players
+                player = 2 if player == 1 else 1
+                chip = 'o' if chip == 'x' else 'x'
+
+                draw_chips()
+
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_r and game_over:
+                screen.fill(BG_COLOR)
+                draw_grids()
+                player = 1
+                chip = "x"
+                game_over = False
+                winner = 0
+                board = initialize_board()
+
+
+    if game_over:
+        pygame.display.update()
+        pygame.time.delay(1000)
+        draw_game_over()
 
     pygame.display.update()
